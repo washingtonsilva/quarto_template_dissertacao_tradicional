@@ -7,18 +7,18 @@ Este projeto foi preparado para gerar um único arquivo PDF e não contém capí
 
 ## Antes de Começar
 
-Este template assume que você já tem `R`, `RStudio`, `Quarto` e `TinyTeX` instalados.
+Este template assume que você já tem **R**, **RStudio**, **Quarto** e **TinyTeX** instalados.
 
 Antes de começar a usá-lo, recomenda-se atualizar:
 
-- o `RStudio`;
-- o `Quarto`.
+- o **RStudio**;
+- o **Quarto**.
 
 Importante:
 
-- use, de preferência, a versão mais recente do `Quarto`, pois ele está em evolução constante;
-- se o PDF parar de compilar por falta de pacote ou erro do TeX Live, atualize primeiro o `Quarto` e depois o `TinyTeX`;
-- se o `RStudio` estiver muito desatualizado, atualize-o antes de editar o trabalho.
+- use, de preferência, a versão mais recente do **Quarto**, pois ele está em evolução constante;
+- se o PDF parar de compilar por falta de pacote ou erro do TeX Live, atualize primeiro o **Quarto** e depois o `TinyTeX`;
+- se o **RStudio** estiver muito desatualizado, atualize-o antes de editar o trabalho.
 
 ## Como Criar seu Repositório a partir deste Template
 
@@ -31,20 +31,20 @@ Para criar sua cópia:
 3. Crie um novo repositório em sua conta com um nome simples, de preferência no padrão `dissertacao_nome_sobrenome`, sem acentos e sem espaços, por exemplo: `dissertacao_joao_silva`.
 4. Mantenha o repositório como **público**, salvo orientação diferente do orientador.
 5. Copie a URL do repositório criado.
-6. Abra o `RStudio`.
+6. Abra o **RStudio**.
 7. Vá em `Project > New Project > Version Control > Git`.
-8. Na janela de clonagem do `RStudio`, cole a URL do repositório no campo `Repository URL`.
+8. Na janela de clonagem do **RStudio**, cole a URL do repositório no campo `Repository URL`.
 9. No campo `Project directory name`, verifique se apareceu o nome do repositório criado, 
 por exemplo: `dissertacao_joao_silva`. Se não, escreva o nome que você escolheu 
 para o repositório neste campo (por exemplo: `dissertacao_joao_silva`).
 10. Escolha a pasta em que o projeto será criado no seu computador.
 11. Clique em `Create Project` para criar o projeto no seu computador. O 
-`RStudio` fará a clonagem do repositório e abrirá o projeto localmente.
+**RStudio** fará a clonagem do repositório e abrirá o projeto localmente.
 12. Adicione o orientador como colaborador do repositório no GitHub.
 
 Observações:
 
-- ao clonar pelo `RStudio`, o próprio `RStudio` criará localmente o arquivo de projeto `.Rproj` para a sua cópia;
+- ao clonar pelo **RStudio**, o próprio **RStudio** criará localmente o arquivo de projeto `.Rproj` para a sua cópia;
 - esse arquivo `.Rproj` é apenas local e não faz parte do conteúdo versionado do template;
 
 
@@ -91,7 +91,7 @@ Em seguida:
 
 - edite resumo, abstract;
 - ative ou mantenha desativados os elementos opcionais;
-- gere o PDF com o botão `Render` do `RStudio` ou com:
+- gere o PDF com o botão `Render` do **RStudio** ou com:
 
 ```bash
 quarto render template_dissertacao_tradicional.qmd
@@ -176,7 +176,7 @@ Se esse arquivo não existir, o template exibirá apenas um marcador de posiçã
 
 ## Folha de Aprovação
 
-A folha de aprovação faz parte do PDF gerado pelo próprio `Quarto`. Isso permite que o PDF final seja assinado digitalmente pelos membros da banca, por exemplo, via `gov.br`.
+A folha de aprovação faz parte do PDF gerado pelo próprio **Quarto**. Isso permite que o PDF final seja assinado digitalmente pelos membros da banca, por exemplo, via `gov.br`.
 
 Importante:
 
