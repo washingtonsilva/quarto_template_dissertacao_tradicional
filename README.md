@@ -36,11 +36,15 @@ para o repositório neste campo (por exemplo: `dissertacao_joao_silva`).
 10. Escolha a pasta em que o projeto será criado no seu computador.
 11. Clique em `Create Project` para criar o projeto no seu computador. O 
 **RStudio** fará a clonagem do repositório e abrirá o projeto localmente.
-12. Adicione o orientador como colaborador do repositório no GitHub.
+12. Renderize o arquivo `dissertacao.qmd` para verificar se tudo está funcionando.
+13. Adicione o orientador como colaborador do repositório no GitHub.
+
+A renderização criará o arquivo `dissertacao.pdf` na pasta do projeto. Esse PDF não é versionado no Git, pois é gerado automaticamente a partir do arquivo-fonte da dissertação.
 
 Observações:
 
-- ao clonar pelo **RStudio**, o próprio **RStudio** criará localmente o arquivo de projeto `.Rproj` para a sua cópia;
+- ao clonar pelo **RStudio**, o próprio **RStudio** criará automaticamente o arquivo de projeto `.Rproj` com o nome do repositório local;
+
 - esse arquivo `.Rproj` é apenas local e não faz parte do conteúdo versionado do template;
 
 
@@ -48,13 +52,13 @@ Observações:
 
 As principais pastas e arquivos do projeto são:
 
-- `template_dissertacao_tradicional.qmd`: arquivo principal da dissertação;
+- `dissertacao.qmd`: arquivo principal da dissertação;
 - `pre_textuais.tex`: arquivo com os elementos pré-textuais;
 - `dados-limpos/`: pasta para armazenar os dados limpos finais, em arquivos `.rds`, usados na dissertação;
 - `referencias.bib`: arquivo da bibliografia;
 - `associacao-brasileira-de-normas-tecnicas-ipea.csl`: arquivo de estilo das citações.
 
-Na maior parte do tempo, você precisará editar apenas o arquivo `template_dissertacao_tradicional.qmd`.
+Na maior parte do tempo, você precisará editar apenas o arquivo `dissertacao.qmd`.
 
 Não altere o arquivo `pre_textuais.tex`, salvo orientação expressa do orientador.
 
@@ -62,7 +66,7 @@ Não altere o arquivo `pre_textuais.tex`, salvo orientação expressa do orienta
 
 ## O que Editar Primeiro
 
-Abra `template_dissertacao_tradicional.qmd` e revise primeiro o 
+Abra `dissertacao.qmd` e revise primeiro o 
 bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO`, no topo do arquivo.
 
 Revise principalmente:
@@ -94,7 +98,7 @@ revisão da literatura, meteodologia, etc.):
 - gere o PDF com o botão `Render` do **RStudio** ou com:
 
 ```bash
-quarto render template_dissertacao_tradicional.qmd
+quarto render dissertacao.qmd
 ```
 
 ## Dados e Código no Template
@@ -107,9 +111,9 @@ Regra de uso:
 - o template da dissertação deve ser usado para redigir o texto e reproduzir os resultados finais que entram no PDF;
 - utilize neste projeto apenas os dados limpos finais, em arquivos `.rds`, na pasta `dados-limpos/`;
 - no projeto analítico, recomenda-se salvar esses dados finais com `readr::write_rds()`;
-- no arquivo `.qmd`, reutilize apenas os códigos finais necessários para reproduzir os modelos, tabelas e gráficos que aparecem na dissertação;
-- para carregar dados limpos no `.qmd`, recomenda-se usar o pacote `readr`, primeiro criando um objeto com o caminho relativo do arquivo e depois lendo o `.rds` com `read_rds()`;
-- é permitido estimar novamente, no `.qmd`, os modelos finais reportados no texto, por exemplo para gerar tabelas com `modelsummary`, tabelas com `gt` e gráficos finais;
+- no arquivo `dissertacao.qmd`, reutilize apenas os códigos finais necessários para reproduzir os modelos, tabelas e gráficos que aparecem na dissertação;
+- para carregar dados limpos em `dissertacao.qmd`, recomenda-se usar o pacote `readr`, primeiro criando um objeto com o caminho relativo do arquivo e depois lendo o `.rds` com `read_rds()`;
+- é permitido estimar novamente, em `dissertacao.qmd`, os modelos finais reportados no texto, por exemplo para gerar tabelas com `modelsummary`, tabelas com `gt` e gráficos finais;
 - não use este projeto para limpar dados, montar bases, testar várias especificações ou conduzir análise exploratória.
 
 Observações:
@@ -119,7 +123,7 @@ Observações:
 - isso é especialmente importante quando os dados finais vierem de bases licenciadas ou com restrição de redistribuição, como a Economatica;
 - se for necessário compartilhar esses arquivos com o orientador, combine diretamente a forma de envio.
 
-Exemplo mínimo de carga de dados limpos finais no `.qmd`:
+Exemplo mínimo de carga de dados limpos finais em `dissertacao.qmd`:
 
 ```r
 # carrega os pacotes utilizados
@@ -181,6 +185,6 @@ A folha de aprovação faz parte do PDF gerado pelo próprio **Quarto**. Isso pe
 Importante:
 
 - preencha a data de aprovação e os dados da banca apenas quando essas informações estiverem definidas;
-- preencha corretamente os dados da banca no topo do arquivo `.qmd` antes de gerar a versão final;
+- preencha corretamente os dados da banca no topo do arquivo `dissertacao.qmd` antes de gerar a versão final;
 - não renderize novamente o PDF depois que ele for assinado;
 - qualquer alteração posterior invalida o arquivo assinado.
