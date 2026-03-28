@@ -18,17 +18,17 @@ Antes de começar a usá-lo, recomenda-se fortemente atualizar:
 
 ## Como Criar seu Repositório a partir deste Template
 
-Este projeto foi publicado no GitHub como um **template**.
+Este projeto foi publicado no **GitHub** como um **template**.
 
 Para criar sua cópia:
 
-1. Acesse esta página do repositório no GitHub.
+1. Acesse esta página do repositório no **GitHub**.
 2. Clique em `Use this template`.
 3. Crie um novo repositório em sua conta com um nome simples, de preferência no padrão `dissertacao_nome_sobrenome`, sem acentos e sem espaços, por exemplo: `dissertacao_joao_silva`.
 4. Mantenha o repositório como **público**, salvo orientação diferente do orientador.
 5. Copie a URL do repositório criado.
 6. Abra o **RStudio**.
-7. Vá em `Project > New Project > Version Control > Git`.
+7. Clique em `Project > New Project > Version Control > Git`.
 8. Na janela de clonagem do **RStudio**, cole a URL do repositório no campo `Repository URL`.
 9. No campo `Project directory name`, verifique se apareceu o nome do repositório criado, 
 por exemplo: `dissertacao_joao_silva`. Se não, escreva o nome que você escolheu 
@@ -37,9 +37,9 @@ para o repositório neste campo (por exemplo: `dissertacao_joao_silva`).
 11. Clique em `Create Project` para criar o projeto no seu computador. O 
 **RStudio** fará a clonagem do repositório e abrirá o projeto localmente.
 12. Renderize o arquivo `dissertacao.qmd` para verificar se tudo está funcionando.
-13. Adicione o orientador como colaborador do repositório no GitHub.
+13. Adicione o orientador como colaborador do repositório no **GitHub**.
 
-A renderização criará o arquivo `dissertacao.pdf` na pasta do projeto. Esse PDF não é versionado no Git, pois é gerado automaticamente a partir do arquivo-fonte da dissertação.
+A renderização criará o arquivo `dissertacao.pdf` na pasta do projeto. Esse **PDF** não é versionado no **Git**, pois é gerado automaticamente a partir do arquivo-fonte da dissertação.
 
 Observações:
 
