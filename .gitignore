@@ -31,6 +31,10 @@ _book/
 *.Rproj.user
 rsconnect/
 
+# Dados locais nao versionados
+dados-limpos/*.rds
+dados-limpos/**/*.rds
+
 # LaTeX / BibLaTeX
 *.aux
 *.bbl

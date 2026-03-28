@@ -6,25 +6,27 @@ format:
     include-in-header:
       - file: pre_textuais.tex
       - text: |
+          \usepackage{indentfirst}
+          \usepackage{microtype}
           % ==========================
           % DADOS EDITAVEIS DA DISSERTACAO
-          % Edite apenas os campos abaixo.
+          % Edite apenas os campos usuais.
           % ==========================
           \newcommand{\InstituicaoDissertacao}{Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais}
           \newcommand{\CampusDissertacao}{Campus Formiga}
           \newcommand{\ProgramaDissertacao}{Mestrado Profissional em Administração}
           \newcommand{\NomeAutorDissertacao}{Nome Completo do Discente}
           % Se a dissertacao tiver subtitulo, preencha o campo abaixo.
-          % Se nao tiver, deixe a macro vazia.
+          % Se nao tiver, deixe o campo vazio.
           \newcommand{\TituloDissertacao}{Título da Dissertação}
           \newcommand{\SubtituloDissertacao}{}
           \newcommand{\CidadeDissertacao}{Formiga}
           \newcommand{\EstadoDissertacao}{MG}
           \newcommand{\AnoDissertacao}{2026}
           % Se houver coorientador(a), preencha o campo abaixo.
-          % Se nao houver, deixe a macro vazia.
+          % Se nao houver, deixe o campo vazio.
           \newcommand{\OrientadorDissertacao}{Prof. Dr. Washington Santos da Silva}
-          \newcommand{\CoorientadorDissertacao}{Prof. Dr. Nome do Coorientador}
+          \newcommand{\CoorientadorDissertacao}{}
           % Campo institucional fixo do curso.
           \newcommand{\LinhaPesquisaDissertacao}{Finanças Corporativas e Investimentos}
           \newcommand{\AreaConcentracaoDissertacao}{Finanças}
@@ -34,7 +36,7 @@ format:
           \newcommand{\PalavrasChaveDissertacao}{palavra-chave 1; palavra-chave 2; palavra-chave 3.}
           \newcommand{\KeywordsDissertation}{keyword 1; keyword 2; keyword 3.}
           \newcommand{\MembroBancaUmNome}{Prof. Dr. Nome do Orientador}
-          \newcommand{\MembroBancaUmFuncao}{Orientador e Presidente da Banca}
+          \newcommand{\MembroBancaUmFuncao}{Orientador}
           \newcommand{\MembroBancaUmInstituicao}{IFMG}
           \newcommand{\MembroBancaDoisNome}{Prof. Dr. Nome do Examinador Interno}
           \newcommand{\MembroBancaDoisFuncao}{Avaliador interno}
@@ -61,22 +63,60 @@ format:
     toc: false
     toc-title: Sumário
     number-sections: true
+    fig-dpi: 300
     fig-cap-location: bottom
     tbl-cap-location: top
+    link-citations: true
+execute: 
+  echo: false
+  warning: false
+  message: false
 bibliography: referencias.bib
 csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 reference-section-title: Referências
-citeproc: true
+crossref:
+  fig-prefix: 'Fig.'
+  tbl-prefix: 'Tab.'
 editor: source
 ---
 
 <!--
-Decisao desta versão do template:
-- manter a dissertacao em um unico arquivo .qmd;
-- usar o pre_textuais.tex apenas para formatacao e paginas auxiliares;
-- separar capitulos em arquivos proprios somente se isso realmente simplificar
-  a manutencao depois que o texto crescer.
+Use este projeto apenas para redacao e reproducao final dos resultados.
+Carregue apenas dados limpos finais de `dados-limpos/` (.rds) e reutilize
+somente os codigos finais de modelos, tabelas e graficos.
+Limpeza, construcao da base, exploracao e testes permanecem no projeto analitico.
 -->
+
+```{r}
+#| label: setup
+#| eval: false
+
+# altere para eval: true apenas quando desejar
+# executar este chunk de configuracao.
+#
+# Os demais chunks podem ser executados separadamente,
+# com suas proprias opcoes.
+
+# altere os pacotes abaixo de acordo com as 
+# necessidades da sua dissertação.
+
+# carrega os pacotes utilizados
+library(here)      # para usar caminhos relativos
+library(tidyverse) # dplyr, ggplot2, etc.
+library(gt)        # para tabelas gerais
+library(modelsummary) # para tabelas com os resultados de modelos
+
+# altere o nome do arquivo arquivo_limpo.rds para 
+# o nome do arquivo limpo que você deseja carregar.
+
+# define o caminho relativo para os dados limpos
+path_limpos <- here::here("dados-limpos/arquivo_limpo.rds")
+
+# importa os dados limpos
+dados_limpos <- readr::read_rds(path_limpos)
+```
+
+
 
 \pagenumbering{gobble}
 
@@ -95,27 +135,31 @@ Decisao desta versão do template:
 
 <!--
 Dedicatória opcional.
-Se não quiser usar, remova todo o bloco abaixo.
+Para usar este elemento, remova os marcadores de comentário HTML que envolvem o bloco abaixo.
 -->
 
+<!--
 \begin{dedicatoriadissertacao}
 
 Dedique este trabalho a quem fez parte da sua trajetória acadêmica,
 profissional ou pessoal.
 
 \end{dedicatoriadissertacao}
+-->
 
 <!--
 Agradecimentos opcionais.
-Se não quiser usar, remova todo o bloco abaixo.
+Para usar este elemento, remova os marcadores de comentário HTML que envolvem o bloco abaixo.
 -->
 
+<!--
 \begin{agradecimentosdissertacao}
 
 Escreva aqui os agradecimentos. Se preferir, remova esta página na versão
 inicial e a recoloque apenas quando o texto estiver mais avançado.
 
 \end{agradecimentosdissertacao}
+-->
 
 \begin{resumodissertacao}
 
@@ -134,13 +178,15 @@ methods, main results, and contribution of the dissertation.
 
 <!--
 Listas opcionais.
-Mantenha estas linhas apenas se houver figuras ou tabelas no trabalho.
+Descomente as linhas abaixo apenas se houver figuras ou tabelas no trabalho.
 Nao use lof/lot no YAML deste template.
 -->
 
+<!--
 \inserirListaDeFigurasDissertacao
 
 \inserirListaDeTabelasDissertacao
+-->
 
 \inserirSumarioDissertacao
 
@@ -150,20 +196,19 @@ Nao use lof/lot no YAML deste template.
 
 
 <!--
-Nas próximas linhas, você escreverá as seções do seu 
-artigo científico.
+Nas próximas linhas, você escreverá as seções da sua dissertação.
 -->
 
 
 
-# Introdução
+# Introdução {#sec-introducao}
 
 Escreva aqui a introdução da dissertação.
 
 
 
 
-# Revisão da Literatura
+# Revisão da Literatura {#sec-revisao}
 
 Escreva aqui a seção de revisão da literatura. 
 
@@ -176,7 +221,7 @@ seção para conter um referencial teórico.
 
 
 
-# Metodologia
+# Metodologia {#sec-metodologia}
 
 
 Escreva aqui a seção sobre a metodologia
@@ -187,14 +232,14 @@ metodológicos adotados, incluindo informações sobre os dados utilizados.
 
 
 
-# Resultados e Discussão
+# Resultados e Discussão {#sec-resultados}
 
 Escreva aqui a seção de resultados e discussão.
 
 
 
 
-# Considerações Finais
+# Considerações Finais {#sec-finais}
 
 Escreva aqui as considerações finais.
 
@@ -203,7 +248,7 @@ Escreva aqui as considerações finais.
 
 
 
-# Referências {.unnumbered}
+# Referências {#sec-referencias .unnumbered}
 
 ::: {#refs}
 :::
@@ -221,6 +266,5 @@ Pós-textuais opcionais:
 Se necessário, descomente esta seção para apresentar materiais 
 complementares neste apêndice. 
 
-Se não houver apêncide, apagaue esta seção de comentários.
-.
+Se não houver apêndice, apague esta seção de comentários.
 -->
