@@ -1,217 +1,232 @@
 # Template de Dissertacao
 
-Template Quarto para dissertacoes tradicionais do Mestrado Profissional em
-Administracao do IFMG - Campus Formiga.
+Template Quarto para a elaboração das dissertaçoões (artigos científicos) 
+dos meus orientandos do 
+[Mestrado Profissional em Administracao do IFMG - Campus Formiga](https://formiga.ifmg.edu.br/mestrado).
 
-Este projeto foi preparado para PDF e segue uma estrutura simples, pensada
-para orientandos que vao editar o trabalho principalmente no RStudio.
-
-O template nao usa capitulo de produto tecnico.
-
+Este projeto foi preparado para gerar um único arquivo PDF e segue uma estrutura 
+simples. Este template não contém um capíttulo dedicado ao produto técnico.
 
 
-## Antes De Comecar
+## Antes de Começar
 
-Este template assume que voce já tem `R`, `RStudio`, `Quarto` e `TinyTeX`
-instalados.
+Este template assume que você já tem `R`, `RStudio`, `Quarto` e 
+`TinyTeX` instalados.
 
-Antes do primeiro uso, vale a pena atualizar:
+Antes de começar a usá-lo, recomenda-se atualizar:
 
-- o RStudio
-- o Quarto
+- o `RStudio`;
+- o `Quarto`.
 
-Recomendacao importante:
+Importante:
 
-- use sempre a versao mais recente do Quarto, porque ele e um sistema novo e
-  evolui rapidamente
-  
-- se o PDF parar de compilar por pacote ausente ou erro do TeX Live, atualize
-  primeiro o Quarto e depois o TinyTeX
-  
-- se o RStudio estiver muito desatualizado, atualize-o antes de comecar a
-  editar o trabalho
+- use, de preferência, a versão mais recente do `Quarto`, pois ele está em 
+evolução constante;
+
+- se o PDF parar de compilar por falta de pacote ou erro do TeX Live, 
+atualize primeiro o `Quarto` e depois o `TinyTeX`;
+
+- se o `RStudio` estiver muito desatualizado, atualize-o antes de editar 
+o trabalho.
 
 
 
-## Como Criar Seu Repositorio
 
-Este projeto foi publicado no GitHub como template.
+## Como Criar seu Repositório
 
-1. Abra a pagina do repositorio no GitHub.
+Este projeto foi publicado no GitHub como um **template**.
+
+Para criar sua cópia:
+
+1. Abra a página do repositório no GitHub.
 2. Clique em `Use this template`.
-3. Crie um novo repositorio em sua conta.
-4. Copie a URL do repositorio criado no GitHub.
-5. Abra o RStudio.
-6. Va em `Project > New Project > Version Control > Git`.
-7. Cole a URL do repositorio na janela de clonagem do RStudio.
-8. Escolha a pasta em que o projeto sera criado no seu computador.
-9. Conclua a criacao do projeto local.
+3. Crie um novo repositório em sua conta.
+4. Copie a URL do repositório criado.
+5. Abra o `RStudio`.
+6. Vá em `Project > New Project > Version Control > Git`.
+7. Cole a URL do repositório.
+8. Escolha a pasta em que o projeto será criado no seu computador.
+9. Conclua a criação do projeto.
 
-Observacao:
+Observações:
 
-- o RStudio fará a clonagem do repositorio e abrirá o projeto localmente
-- o arquivo `.Rproj` pode continuar com o nome original do template
+- o `RStudio` fará a clonagem do repositório e abrirá o projeto localmente;
+- o arquivo `.Rproj` pode continuar com o nome original do template.
+
 
 
 
 ## Arquivos Principais
 
-- `quarto_template_dissertacao_tradicional.Rproj`: arquivo do projeto para
-  abrir no RStudio
-- `template_dissertacao_tradicional.qmd`: arquivo principal da dissertacao
-- `pre_textuais.tex`: arquivo `.tex` dos elementos pre-textuais
-- `referencias.bib`: bibliografia do trabalho
-- `associacao-brasileira-de-normas-tecnicas-ipea.csl`: estilo de citação 
-conforme as normas da ABNT atuais.
+Os arquivos mais importantes do projeto são:
+
+- `quarto_template_dissertacao_tradicional.Rproj`: arquivo do projeto para abrir no `RStudio`;
+- `template_dissertacao_tradicional.qmd`: arquivo principal da dissertação;
+- `pre_textuais.tex`: arquivo com os elementos pré-textuais;
+- `referencias.bib`: arquivo da bibliografia;
+- `associacao-brasileira-de-normas-tecnicas-ipea.csl`: arquivo de estilo das citações.
 
 
 
-## Primeiro Uso No RStudio
 
-1. Abra `quarto_template_dissertacao_tradicional.Rproj`.
+## Primeiro Uso no RStudio
+
+Depois de clonar o repositório:
+
+1. Abra seu projeto RStudio do template que você clonou.
 2. Abra `template_dissertacao_tradicional.qmd`.
-3. Edite primeiro o bloco `DADOS EDITAVEIS DA DISSERTACAO` no topo do arquivo.
-4. Depois edite os textos dos elementos pre-textuais e dos capitulos.
-5. Renderize o PDF com o botao Render do RStudio ou com:
+3. Preencha primeiro o bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO`, no topo do arquivo.
+4. Em seguida, edite os elementos pré-textuais e os capítulos.
+5. Gere o PDF usando o botão `Render` do `RStudio` ou o comando:
 
 ```bash
 quarto render template_dissertacao_tradicional.qmd
 ```
 
-Se esse primeiro teste de renderizacao falhar, a primeira verificacao deve ser:
+Se a primeira renderização falhar, verifique:
 
-- se o Quarto esta atualizado
-- se o RStudio esta atualizado
-- se o TinyTeX precisa ser atualizado
+- se o `Quarto` está atualizado;
+- se o `RStudio` está atualizado;
+- se o `TinyTeX` precisa ser atualizado.
 
-Na maior parte do tempo, voce deve editar apenas `template_dissertacao_tradicional.qmd`.
-O arquivo `pre_textuais.tex` so precisa ser alterado quando for necessario
-ajustar a formatacao do template.
+Na maior parte do tempo, você precisará editar apenas o arquivo 
+`template_dissertacao_tradicional.qmd`.
 
-
-
-## O Que Editar Primeiro
-
-No topo de `template_dissertacao_tradicional.qmd`, revise estes campos:
-
-- nome do discente
-- titulo e subtitulo
-- cidade, estado e ano
-- orientador
-- coorientador, se houver
-- texto de apresentacao da folha de rosto, se precisar ajustar
-- data de aprovacao
-- palavras-chave em portugues
-- keywords em ingles
-- nomes, funcoes e instituicoes da banca
-
-Regras praticas:
-
-- se a dissertacao nao tiver subtitulo, deixe `\\SubtituloDissertacao{}` vazio
-- se houver subtitulo, ele aparece automaticamente na capa e na folha de rosto
-- se nao houver coorientador, deixe `\\CoorientadorDissertacao{}` vazio
-- na folha de aprovacao, use apenas a sigla da instituicao de cada membro, por
-  exemplo `IFMG`, `UFMG` ou `UFLA`
-- nao e necessario escrever "membro titular"
-- prefira funcoes curtas, como `Orientador`, `Coorientador`, `Avaliador interno`
-  e `Avaliador externo`
-
-Depois disso, edite o corpo do trabalho:
-
-- dedicatoria, se quiser usar
-- agradecimentos, se quiser usar
-- resumo
-- abstract
-- introducao
-- referencial teorico
-- metodologia
-- resultados e discussao
-- consideracoes finais
+O arquivo `pre_textuais.tex` só deve ser alterado quando for 
+necessário ajustar a formatação do template.
 
 
 
-## Elementos Pre-Textuais Do Template
 
-Sequencia atual do template:
+## O que Editar Primeiro
 
-1. capa
-2. folha de rosto
-3. ficha catalografica
-4. folha de aprovacao
-5. dedicatoria, se mantida
-6. agradecimentos, se mantidos
-7. resumo com palavras-chave
-8. abstract com keywords
-9. lista de figuras
-10. lista de tabelas
-11. sumario
+No início de `template_dissertacao_tradicional.qmd`, revise principalmente:
 
-Observacoes:
+- nome do discente;
+- título e subtítulo;
+- cidade, estado e ano;
+- orientador;
+- coorientador, se houver;
+- texto da folha de rosto;
+- data de aprovação;
+- palavras-chave em português;
+- keywords em inglês;
+- nomes, funções e instituições dos membros da banca.
 
-- a dedicatoria e opcional
-- os agradecimentos sao opcionais
-- a lista de figuras so deve ser mantida se houver figuras no trabalho
-- a lista de tabelas so deve ser mantida se houver tabelas no trabalho
-- neste template, nao use `lof` nem `lot` no YAML
+Regras práticas:
 
-Se nao houver figuras ou tabelas, remova do arquivo principal os comandos:
+- se não houver subtítulo, deixe `\\SubtituloDissertacao{}` vazio;
+- se houver subtítulo, ele será exibido automaticamente na capa e na folha de rosto;
+- se não houver coorientador, deixe `\\CoorientadorDissertacao{}` vazio;
+- na folha de aprovação, use apenas a sigla da instituição de cada membro, como `IFMG`, `UFMG` ou `UFLA`;
+- não é necessário escrever “membro titular”;
+- prefira funções curtas, como `Orientador`, `Coorientador`, `Avaliador interno` e `Avaliador externo`.
+
+Depois disso, edite o texto da dissertação:
+
+- dedicatória, se desejar;
+- agradecimentos, se desejar;
+- resumo;
+- abstract;
+- introdução;
+- referencial teórico;
+- metodologia;
+- resultados e discussão;
+- considerações finais.
+
+
+
+
+## Elementos Pré-textuais
+
+A sequência atual do template é a seguinte:
+
+1. capa;
+2. folha de rosto;
+3. ficha catalográfica;
+4. folha de aprovação;
+5. dedicatória, se mantida;
+6. agradecimentos, se mantidos;
+7. resumo com palavras-chave;
+8. abstract com keywords;
+9. lista de figuras;
+10. lista de tabelas;
+11. sumário.
+
+Observações importantes:
+
+- a dedicatória é opcional;
+- os agradecimentos são opcionais;
+- a lista de figuras só deve ser mantida se houver figuras no trabalho;
+- a lista de tabelas só deve ser mantida se houver tabelas no trabalho;
+- neste template, não use `lof` nem `lot` no YAML.
+
+Se não houver figuras ou tabelas, remova do arquivo principal os comandos:
 
 - `\inserirListaDeFigurasDissertacao`
 - `\inserirListaDeTabelasDissertacao`
 
 
 
-## Ficha Catalografica
 
-A ficha catalografica nao é escrita dentro do template.
+## Ficha Catalográfica
 
-Fluxo recomendado:
+A ficha catalográfica não é escrita diretamente no template.
 
-1. Receba o arquivo da bibliotecaria.
-2. Converta esse arquivo para PDF.
-3. Salve o PDF com o nome `ficha_catalografica.pdf` na raiz do projeto.
-4. Renderize novamente a dissertacao.
+Procedimento que deve ser seguido:
 
-Se esse arquivo nao existir, o template mostra apenas um placeholder na posicao
-correta.
+1. após receber o arquivo da bibliotecária;
+2. converta esse arquivo para PDF;
+3. salve o PDF com o nome `ficha_catalografica.pdf` na raiz do projeto;
+4. renderize novamente a dissertação.
+
+Se esse arquivo não existir, o template exibirá apenas um marcador de 
+posição no local correspondente.
 
 
 
-## Folha De Aprovacao
 
-A folha de aprovacao faz parte do PDF gerado pelo proprio Quarto.
+## Folha de Aprovação
 
-Isso foi feito para permitir que o PDF final seja assinado digitalmente pelos
-membros da banca, por exemplo via `gov.br`.
+A folha de aprovação faz parte do PDF gerado pelo próprio `Quarto`.
 
-Fluxo recomendado:
+Isso permite que o PDF final seja assinado digitalmente pelos membros 
+da banca, por exemplo, via `gov.br`.
 
-1. Preencha corretamente os dados da banca no topo do `.qmd`.
-2. Gere o PDF final da dissertacao.
-3. Use esse PDF para a coleta das assinaturas digitais.
+Procedimento recomendado:
+
+1. preencha corretamente os dados da banca no topo do arquivo `.qmd`;
+2. gere o PDF final da dissertação;
+3. use esse PDF para coletar as assinaturas digitais.
 
 Importante:
 
-- nao renderize novamente o PDF depois que ele for assinado
-- qualquer alteracao posterior invalida o arquivo que foi assinado
+- não renderize novamente o PDF depois que ele for assinado;
+- qualquer alteração posterior invalida o arquivo assinado.
 
 
 
-## Estrutura Do Texto
 
-Nesta versao do template, toda a dissertacao permanece em um unico arquivo
-`.qmd`.
+## Estrutura do Texto
 
-Isso foi mantido de proposito para reduzir a complexidade inicial. Se o texto
-ficar muito grande no futuro, os capitulos podem ser separados depois.
+Nesta versão do template, toda a dissertação fica em um único arquivo `.qmd`.
+
+Essa escolha foi feita para simplificar o uso inicial do projeto. 
+
+Caso o texto fique muito grande no futuro, os capítulos poderão ser 
+separados em arquivos diferentes.
 
 
 
-## Observacoes Finais
 
-- o template foi configurado para PDF com `xelatex`
-- isso e compativel com o uso de `TinyTeX`
-- o arquivo `.Rproj` deve permanecer versionado
-- PDFs gerados nao devem ser versionados no repositorio
-- o `.gitignore` do projeto ja foi preparado para ignorar os arquivos 
-desnecessarios gerados durante a edicao do trabalho
+## Observações Finais
+
+- o template foi configurado para gerar PDF com `xelatex`;
+- isso é compatível com o uso do `TinyTeX`;
+- o arquivo `.Rproj` deve permanecer versionado;
+- os PDFs gerados não devem ser versionados no repositório;
+- o arquivo `.gitignore` já foi preparado para ignorar arquivos 
+desnecessários gerados durante a edição do trabalho.
+
+
+
