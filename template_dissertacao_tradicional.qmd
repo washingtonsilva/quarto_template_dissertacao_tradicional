@@ -102,17 +102,17 @@ Limpeza, construcao da base, exploracao e testes permanecem no projeto analitico
 
 # carrega os pacotes utilizados
 library(here)      # para usar caminhos relativos
-library(tidyverse) # dplyr, ggplot2, etc.
+library(tidyverse) # readr, dplyr, ggplot2, etc.
 library(gt)        # para tabelas gerais
 library(modelsummary) # para tabelas com os resultados de modelos
 
 # altere o nome do arquivo arquivo_limpo.rds para 
 # o nome do arquivo limpo que você deseja carregar.
 
-# define o caminho relativo para os dados limpos
+# define o caminho relativo para o arquivo de dados limpos
 path_limpos <- here::here("dados-limpos/arquivo_limpo.rds")
 
-# importa os dados limpos
+# importa o arquivo de dados limpos
 dados_limpos <- readr::read_rds(path_limpos)
 ```
 

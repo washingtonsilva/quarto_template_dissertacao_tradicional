@@ -120,10 +120,14 @@ Observações:
 Exemplo mínimo de carga de dados limpos finais no `.qmd`:
 
 ```r
-library(readr)
+# carrega os pacotes utilizados
+library(tidyverse) # readr, dplyr, ggplot2, etc.
 
-caminho_base_final <- "dados-limpos/base_final.rds"
-base_final <- read_rds(caminho_base_final)
+# define o caminho relativo para o arquivo de dados limpos
+path_limpos <- here::here("dados-limpos/arquivo_limpo.rds")
+
+# importa o arquivo de dados limpos
+dados_limpos <- readr::read_rds(path_limpos)
 ```
 
 ## Elementos Pré-textuais
