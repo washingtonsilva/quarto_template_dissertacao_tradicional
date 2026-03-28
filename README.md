@@ -44,10 +44,8 @@ para o repositório neste campo (por exemplo: `dissertacao_joao_silva`).
 
 Observações:
 
-- o `RStudio` fará a clonagem do repositório e abrirá o projeto localmente;
 - ao clonar pelo `RStudio`, o próprio `RStudio` criará localmente o arquivo de projeto `.Rproj` para a sua cópia;
 - esse arquivo `.Rproj` é apenas local e não faz parte do conteúdo versionado do template;
-- se você clonar o repositório fora do `RStudio`, crie depois um projeto a partir da pasta local em `Project > New Project > Existing Directory`.
 
 
 ## Estrutura do Projeto
