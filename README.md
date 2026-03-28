@@ -9,16 +9,12 @@ Este projeto foi preparado para gerar um único arquivo PDF e não contém capí
 
 Este template assume que você já tem **R**, **RStudio**, **Quarto** e **TinyTeX** instalados.
 
-Antes de começar a usá-lo, recomenda-se atualizar:
+Antes de começar a usá-lo, recomenda-se fortemente atualizar:
 
 - o **RStudio**;
 - o **Quarto**.
 
-Importante:
 
-- use, de preferência, a versão mais recente do **Quarto**, pois ele está em evolução constante;
-- se o PDF parar de compilar por falta de pacote ou erro do TeX Live, atualize primeiro o **Quarto** e depois o `TinyTeX`;
-- se o **RStudio** estiver muito desatualizado, atualize-o antes de editar o trabalho.
 
 ## Como Criar seu Repositório a partir deste Template
 
@@ -62,9 +58,12 @@ Na maior parte do tempo, você precisará editar apenas o arquivo `template_diss
 
 Não altere o arquivo `pre_textuais.tex`, salvo orientação expressa do orientador.
 
+
+
 ## O que Editar Primeiro
 
-Abra `template_dissertacao_tradicional.qmd` e revise primeiro o bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO`, no topo do arquivo.
+Abra `template_dissertacao_tradicional.qmd` e revise primeiro o 
+bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO`, no topo do arquivo.
 
 Revise principalmente:
 
@@ -87,9 +86,10 @@ Regras práticas:
 - não é necessário escrever “membro titular”;
 - prefira funções curtas, como `Orientador`, `Coorientador`, `Avaliador interno` e `Avaliador externo`.
 
-Em seguida:
+Após finalizar as principais seções da dissertação (introdução, 
+revisão da literatura, meteodologia, etc.):
 
-- edite resumo, abstract;
+- escreva o resumo e o abstract;
 - ative ou mantenha desativados os elementos opcionais;
 - gere o PDF com o botão `Render` do **RStudio** ou com:
 
@@ -150,9 +150,9 @@ A sequência atual do template é a seguinte:
 
 Na versão inicial do template:
 
-- a dedicatória já fica comentada;
-- os agradecimentos já ficam comentados;
-- os comandos de lista de figuras e lista de tabelas também já ficam comentados.
+- a dedicatória está comentada;
+- os agradecimentos estão comentados;
+- os comandos de lista de figuras e lista de tabelas também estão comentados.
 
 Se quiser ativar esses elementos opcionais no arquivo principal:
 
