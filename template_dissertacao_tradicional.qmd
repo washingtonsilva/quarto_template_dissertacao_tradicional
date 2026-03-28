@@ -14,6 +14,8 @@ format:
           \newcommand{\CampusDissertacao}{Campus Formiga}
           \newcommand{\ProgramaDissertacao}{Mestrado Profissional em Administração}
           \newcommand{\NomeAutorDissertacao}{Nome Completo do Discente}
+          % Se a dissertacao tiver subtitulo, preencha o campo abaixo.
+          % Se nao tiver, deixe a macro vazia.
           \newcommand{\TituloDissertacao}{Título da Dissertação}
           \newcommand{\SubtituloDissertacao}{}
           \newcommand{\CidadeDissertacao}{Formiga}
@@ -21,11 +23,11 @@ format:
           \newcommand{\AnoDissertacao}{2026}
           % Se houver coorientador(a), preencha o campo abaixo.
           % Se nao houver, deixe a macro vazia.
-          \newcommand{\OrientadorDissertacao}{Prof. Dr. Nome do Orientador}
+          \newcommand{\OrientadorDissertacao}{Prof. Dr. Washington Santos da Silva}
           \newcommand{\CoorientadorDissertacao}{Prof. Dr. Nome do Coorientador}
           % Campo institucional fixo do curso.
           \newcommand{\LinhaPesquisaDissertacao}{Finanças Corporativas e Investimentos}
-          \newcommand{\AreaConcentracaoDissertacao}{Área de concentração}
+          \newcommand{\AreaConcentracaoDissertacao}{Finanças}
           \newcommand{\TituloObtidoDissertacao}{Mestre em Administração}
           \newcommand{\TextoApresentacaoDissertacao}{Dissertação apresentada ao Programa de Pós-Graduação em Administração do Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais (IFMG) -- Campus Formiga, como requisito parcial para obtenção do título de \TituloObtidoDissertacao.}
           \newcommand{\DataAprovacaoDissertacao}{00 de mês de 2026}
@@ -61,8 +63,6 @@ format:
     number-sections: true
     fig-cap-location: bottom
     tbl-cap-location: top
-    lof: false
-    lot: false
 bibliography: referencias.bib
 csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 reference-section-title: Referências
@@ -71,7 +71,7 @@ editor: source
 ---
 
 <!--
-Decisao desta primeira iteracao:
+Decisao desta versão do template:
 - manter a dissertacao em um unico arquivo .qmd;
 - usar o pre_textuais.tex apenas para formatacao e paginas auxiliares;
 - separar capitulos em arquivos proprios somente se isso realmente simplificar
@@ -132,6 +132,12 @@ methods, main results, and contribution of the dissertation.
 
 \end{abstractdissertacao}
 
+<!--
+Listas opcionais.
+Mantenha estas linhas apenas se houver figuras ou tabelas no trabalho.
+Nao use lof/lot no YAML deste template.
+-->
+
 \inserirListaDeFigurasDissertacao
 
 \inserirListaDeTabelasDissertacao
@@ -141,113 +147,69 @@ methods, main results, and contribution of the dissertation.
 \clearpage
 \pagestyle{textualdissertacao}
 
+
+
+<!--
+Nas próximas linhas, você escreverá as seções do seu 
+artigo científico.
+-->
+
+
+
 # Introdução
 
-## Contextualização do tema
+Escreva aqui a introdução da dissertação.
 
-Apresente o contexto do problema de pesquisa, sua relevância acadêmica e
-aplicada e o ambiente institucional ou organizacional em que o estudo se
-insere.
 
-## Problema de pesquisa
 
-Formule explicitamente a pergunta ou o problema que a dissertação pretende
-responder.
 
-## Objetivos
+# Revisão da Literatura
 
-### Objetivo geral
+Escreva aqui a seção de revisão da literatura. 
 
-Declare o objetivo principal da dissertação em uma frase direta.
+Use subseções para organizar o conteúdo, caso necessário e desejável.
 
-### Objetivos específicos
+Caso necessário, é possível e desejável apresentar os conceitos ou 
+modelos teóricos relevantes nesta seção, ao invés de criar uma 
+seção para conter um referencial teórico. 
 
-Liste os objetivos específicos em uma sequência lógica.
 
-## Justificativa
 
-Explique a relevância do estudo, a contribuição esperada e o motivo pelo
-qual o tema merece investigação.
-
-## Estrutura da dissertação
-
-Descreva brevemente a organização dos capítulos.
-
-# Referencial Teórico
-
-## Conceitos e fundamentos centrais
-
-Desenvolva os conceitos, modelos e definições que sustentam o trabalho.
-
-## Estudos empíricos relacionados
-
-Sintetize estudos anteriores alinhados ao problema investigado. Uma citação
-no formato Quarto aparece, por exemplo, em @cruz_gonzalez_2017.
-
-## Síntese da literatura e lacuna de pesquisa
-
-Feche o capítulo indicando a lacuna que a dissertação pretende explorar.
 
 # Metodologia
 
-## Classificação da pesquisa
 
-Descreva a abordagem metodológica e o delineamento da pesquisa.
+Escreva aqui a seção sobre a metodologia
 
-## Contexto, unidade de análise e dados
+Utilize as subseções que forem necessárias para detalhar os procedimentos 
+metodológicos adotados, incluindo informações sobre os dados utilizados.
 
-Explique o contexto empírico, a unidade de análise, a população ou amostra
-e as fontes de dados utilizadas.
 
-## Procedimentos de coleta e tratamento dos dados
 
-Detalhe como os dados foram coletados, organizados e preparados para
-análise.
-
-## Estratégia de análise
-
-Explique os métodos, técnicas ou instrumentos usados para responder ao
-problema de pesquisa.
-
-## Aspectos éticos e limitações metodológicas
-
-Registre aprovações institucionais, quando cabíveis, e delimite as
-principais limitações do desenho metodológico.
 
 # Resultados e Discussão
 
-## Caracterização do contexto investigado
+Escreva aqui a seção de resultados e discussão.
 
-Apresente informações necessárias para compreender o ambiente, a
-organização, os participantes ou a base de dados analisada.
 
-## Apresentação dos resultados
 
-Organize os achados em uma sequência coerente com os objetivos específicos.
-
-## Discussão dos achados
-
-Interprete os resultados à luz da literatura e destaque convergências,
-divergências e implicações.
 
 # Considerações Finais
 
-## Síntese da pesquisa
+Escreva aqui as considerações finais.
 
-Retome o problema, os objetivos e os principais resultados.
 
-## Contribuições da dissertação
 
-Explique as contribuições teóricas, metodológicas e práticas do estudo.
 
-## Limitações
 
-Apresente as limitações mais relevantes sem enfraquecer artificialmente o
-trabalho.
 
-## Agenda para pesquisas futuras
+# Referências {.unnumbered}
 
-Indique desdobramentos plausíveis para novos estudos.
+::: {#refs}
+:::
+
+
+
 
 <!--
 Pós-textuais opcionais:
@@ -256,9 +218,9 @@ Pós-textuais opcionais:
 
 # Título do Apêndice
 
-Use esta área para instrumentos de coleta, roteiros, questionários ou
-materiais produzidos pelo autor.
+Se necessário, descomente esta seção para apresentar materiais 
+complementares neste apêndice. 
 
-Para anexos, crie um novo capítulo após os apêndices e ajuste o título
-conforme a necessidade do programa.
+Se não houver apêncide, apagaue esta seção de comentários.
+.
 -->

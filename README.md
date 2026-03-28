@@ -1,4 +1,4 @@
-# Template de Dissertacao Tradicional
+# Template de Dissertacao
 
 Template Quarto para dissertacoes tradicionais do Mestrado Profissional em
 Administracao do IFMG - Campus Formiga.
@@ -8,49 +8,63 @@ para orientandos que vao editar o trabalho principalmente no RStudio.
 
 O template nao usa capitulo de produto tecnico.
 
+
+
 ## Antes De Comecar
 
-Antes de usar o template, instale:
+Este template assume que voce já tem `R`, `RStudio`, `Quarto` e `TinyTeX`
+instalados.
 
-- a versao mais recente do Quarto
+Antes do primeiro uso, vale a pena atualizar:
+
 - o RStudio
-- o TinyTeX para gerar PDF
+- o Quarto
 
 Recomendacao importante:
 
 - use sempre a versao mais recente do Quarto, porque ele e um sistema novo e
   evolui rapidamente
+  
 - se o PDF parar de compilar por pacote ausente ou erro do TeX Live, atualize
-  o TinyTeX
+  primeiro o Quarto e depois o TinyTeX
+  
+- se o RStudio estiver muito desatualizado, atualize-o antes de comecar a
+  editar o trabalho
+
+
 
 ## Como Criar Seu Repositorio
 
-Se este projeto estiver publicado no GitHub como template:
+Este projeto foi publicado no GitHub como template.
 
 1. Abra a pagina do repositorio no GitHub.
 2. Clique em `Use this template`.
-3. Crie um novo repositorio seu, em vez de usar fork.
-4. Clone o repositorio criado para o seu computador.
-5. Abra o projeto no RStudio pelo arquivo
-   `quarto_template_dissertacao_tradicional.Rproj`.
+3. Crie um novo repositorio em sua conta.
+4. Copie a URL do repositorio criado no GitHub.
+5. Abra o RStudio.
+6. Va em `Project > New Project > Version Control > Git`.
+7. Cole a URL do repositorio na janela de clonagem do RStudio.
+8. Escolha a pasta em que o projeto sera criado no seu computador.
+9. Conclua a criacao do projeto local.
 
 Observacao:
 
-- mesmo no seu repositorio proprio, o arquivo `.Rproj` pode continuar com o
-  nome original do template
+- o RStudio fará a clonagem do repositorio e abrirá o projeto localmente
+- o arquivo `.Rproj` pode continuar com o nome original do template
 
-Referencia oficial:
 
-- [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
 
 ## Arquivos Principais
 
 - `quarto_template_dissertacao_tradicional.Rproj`: arquivo do projeto para
   abrir no RStudio
 - `template_dissertacao_tradicional.qmd`: arquivo principal da dissertacao
-- `pre_textuais.tex`: camada de formatacao LaTeX dos elementos pre-textuais
+- `pre_textuais.tex`: arquivo `.tex` dos elementos pre-textuais
 - `referencias.bib`: bibliografia do trabalho
-- `associacao-brasileira-de-normas-tecnicas-ipea.csl`: estilo de citacao
+- `associacao-brasileira-de-normas-tecnicas-ipea.csl`: estilo de citação 
+conforme as normas da ABNT atuais.
+
+
 
 ## Primeiro Uso No RStudio
 
@@ -64,9 +78,17 @@ Referencia oficial:
 quarto render template_dissertacao_tradicional.qmd
 ```
 
+Se esse primeiro teste de renderizacao falhar, a primeira verificacao deve ser:
+
+- se o Quarto esta atualizado
+- se o RStudio esta atualizado
+- se o TinyTeX precisa ser atualizado
+
 Na maior parte do tempo, voce deve editar apenas `template_dissertacao_tradicional.qmd`.
 O arquivo `pre_textuais.tex` so precisa ser alterado quando for necessario
 ajustar a formatacao do template.
+
+
 
 ## O Que Editar Primeiro
 
@@ -77,7 +99,6 @@ No topo de `template_dissertacao_tradicional.qmd`, revise estes campos:
 - cidade, estado e ano
 - orientador
 - coorientador, se houver
-- area de concentracao
 - texto de apresentacao da folha de rosto, se precisar ajustar
 - data de aprovacao
 - palavras-chave em portugues
@@ -86,6 +107,8 @@ No topo de `template_dissertacao_tradicional.qmd`, revise estes campos:
 
 Regras praticas:
 
+- se a dissertacao nao tiver subtitulo, deixe `\\SubtituloDissertacao{}` vazio
+- se houver subtitulo, ele aparece automaticamente na capa e na folha de rosto
 - se nao houver coorientador, deixe `\\CoorientadorDissertacao{}` vazio
 - na folha de aprovacao, use apenas a sigla da instituicao de cada membro, por
   exemplo `IFMG`, `UFMG` ou `UFLA`
@@ -104,6 +127,8 @@ Depois disso, edite o corpo do trabalho:
 - metodologia
 - resultados e discussao
 - consideracoes finais
+
+
 
 ## Elementos Pre-Textuais Do Template
 
@@ -127,15 +152,18 @@ Observacoes:
 - os agradecimentos sao opcionais
 - a lista de figuras so deve ser mantida se houver figuras no trabalho
 - a lista de tabelas so deve ser mantida se houver tabelas no trabalho
+- neste template, nao use `lof` nem `lot` no YAML
 
 Se nao houver figuras ou tabelas, remova do arquivo principal os comandos:
 
 - `\inserirListaDeFigurasDissertacao`
 - `\inserirListaDeTabelasDissertacao`
 
+
+
 ## Ficha Catalografica
 
-A ficha catalografica nao e escrita dentro do template.
+A ficha catalografica nao é escrita dentro do template.
 
 Fluxo recomendado:
 
@@ -146,6 +174,8 @@ Fluxo recomendado:
 
 Se esse arquivo nao existir, o template mostra apenas um placeholder na posicao
 correta.
+
+
 
 ## Folha De Aprovacao
 
@@ -165,6 +195,8 @@ Importante:
 - nao renderize novamente o PDF depois que ele for assinado
 - qualquer alteracao posterior invalida o arquivo que foi assinado
 
+
+
 ## Estrutura Do Texto
 
 Nesta versao do template, toda a dissertacao permanece em um unico arquivo
@@ -173,10 +205,13 @@ Nesta versao do template, toda a dissertacao permanece em um unico arquivo
 Isso foi mantido de proposito para reduzir a complexidade inicial. Se o texto
 ficar muito grande no futuro, os capitulos podem ser separados depois.
 
+
+
 ## Observacoes Finais
 
 - o template foi configurado para PDF com `xelatex`
 - isso e compativel com o uso de `TinyTeX`
 - o arquivo `.Rproj` deve permanecer versionado
 - PDFs gerados nao devem ser versionados no repositorio
-- o `.gitignore` do projeto ja foi preparado para ignorar os arquivos gerados
+- o `.gitignore` do projeto ja foi preparado para ignorar os arquivos 
+desnecessarios gerados durante a edicao do trabalho

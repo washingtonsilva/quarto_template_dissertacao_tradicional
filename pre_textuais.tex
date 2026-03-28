@@ -52,6 +52,14 @@
   \ifdefempty{\SubtituloDissertacao}{}{\\[0.5cm]\large \SubtituloDissertacao}%
 }
 
+\newcommand{\imprimirSubtituloNaCapaSeInformado}{%
+  \ifdefempty{\SubtituloDissertacao}{}{\\[0.5cm]\normalsize \SubtituloDissertacao}%
+}
+
+\newcommand{\imprimirSubtituloNaFolhaDeRostoSeInformado}{%
+  \ifdefempty{\SubtituloDissertacao}{}{\\[0.5cm]\normalsize \SubtituloDissertacao}%
+}
+
 \newcommand{\imprimirCoorientadorSeInformado}{%
   \ifdefempty{\CoorientadorDissertacao}{}{Coorientador(a): \CoorientadorDissertacao\\}%
 }
@@ -107,7 +115,9 @@
 
 \newenvironment{resumodissertacao}{
   \clearpage
+  \begingroup
   \thispagestyle{empty}
+  \setstretch{1.0}
   \small
   \vspace*{-1cm}
   \begin{center}
@@ -126,11 +136,14 @@
   \end{minipage}
   \end{center}
   \clearpage
+  \endgroup
 }
 
 \newenvironment{abstractdissertacao}{
   \clearpage
+  \begingroup
   \thispagestyle{empty}
+  \setstretch{1.0}
   \small
   \vspace*{-1cm}
   \begin{center}
@@ -149,6 +162,7 @@
   \end{minipage}
   \end{center}
   \clearpage
+  \endgroup
 }
 
 \newcommand{\capaDissertacao}{%
@@ -161,14 +175,14 @@
     \textbf{\ProgramaDissertacao}
 
     \vspace*{4cm}
-    \Large \textbf{\NomeAutorDissertacao}
+    \normalsize \textbf{\NomeAutorDissertacao}
 
     \vspace*{5cm}
-    \Large \textbf{\MakeUppercase{\TituloDissertacao}}
-    \imprimirSubtituloSeInformado
+    \large \textbf{\MakeUppercase{\TituloDissertacao}}
+    \imprimirSubtituloNaCapaSeInformado
 
     \vfill
-    \textbf{\CidadeDissertacao, \EstadoDissertacao}\\
+    \normalsize \textbf{\CidadeDissertacao, \EstadoDissertacao}\\
     \textbf{\AnoDissertacao}
   \end{center}
   \end{titlepage}
@@ -179,11 +193,11 @@
   \thispagestyle{empty}
   \begin{center}
     \vspace*{2cm}
-    \large \textbf{\MakeUppercase{\NomeAutorDissertacao}}
+    \normalsize \textbf{\MakeUppercase{\NomeAutorDissertacao}}
 
     \vspace*{4cm}
-    \Large \textbf{\TituloDissertacao}
-    \imprimirSubtituloSeInformado
+    \large \textbf{\TituloDissertacao}
+    \imprimirSubtituloNaFolhaDeRostoSeInformado
 
     \vspace*{2cm}
     \begin{flushright}
@@ -255,10 +269,11 @@
   \begin{minipage}{0.5\textwidth}
   \small
   \justifying
-  Dissertação apresentada ao \InstituicaoDissertacao, como parte das
-  exigências do \ProgramaDissertacao, área de concentração em
-  \AreaConcentracaoDissertacao, para obtenção do título de
-  \TituloObtidoDissertacao. Linha de pesquisa: \LinhaPesquisaDissertacao.
+  Dissertação apresentada ao \InstituicaoDissertacao\ (IFMG) --
+  \CampusDissertacao, como parte das exigências do \ProgramaDissertacao, área
+  de concentração: \AreaConcentracaoDissertacao, para obtenção do título de
+  \TituloObtidoDissertacao.\\
+  Linha de pesquisa: \LinhaPesquisaDissertacao.
   \end{minipage}
   \end{flushright}
 
