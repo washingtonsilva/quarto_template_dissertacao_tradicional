@@ -26,7 +26,7 @@ Este projeto foi publicado no GitHub como um **template**.
 
 Para criar sua cópia:
 
-1. Abra a página do repositório no GitHub.
+1. Acesse esta página do repositório no GitHub.
 2. Clique em `Use this template`.
 3. Crie um novo repositório em sua conta.
 4. Mantenha o repositório como **público**, salvo orientação diferente do orientador.
