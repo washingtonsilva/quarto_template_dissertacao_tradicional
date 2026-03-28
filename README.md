@@ -28,13 +28,13 @@ Para criar sua cópia:
 
 1. Acesse esta página do repositório no GitHub.
 2. Clique em `Use this template`.
-3. Crie um novo repositório em sua conta.
+3. Crie um novo repositório em sua conta com um nome simples, de preferência no padrão `dissertacao_nome_sobrenome`, sem acentos e sem espaços, por exemplo: `dissertacao_joao_silva`.
 4. Mantenha o repositório como **público**, salvo orientação diferente do orientador.
 5. Copie a URL do repositório criado.
 6. Abra o `RStudio`.
 7. Vá em `Project > New Project > Version Control > Git`.
 8. Na janela de clonagem do `RStudio`, cole a URL do repositório no campo `Repository URL`.
-9. No campo `Project directory name`, escolha um nome simples para a pasta do projeto no seu computador. Recomenda-se usar o padrão `dissertacao_nome_sobrenome`, sem acentos e sem espaços.
+9. No campo `Project directory name`, confirme ou ajuste o nome da pasta local do projeto.
 10. Escolha a pasta em que o projeto será criado no seu computador.
 11. Conclua a criação do projeto.
 12. Adicione o orientador como colaborador do repositório.
@@ -42,14 +42,15 @@ Para criar sua cópia:
 Observações:
 
 - o `RStudio` fará a clonagem do repositório e abrirá o projeto localmente;
-- o arquivo `.Rproj` pode continuar com o nome original do template.
+- ao clonar pelo `RStudio`, o próprio `RStudio` criará localmente o arquivo de projeto `.Rproj` para a sua cópia;
+- esse arquivo `.Rproj` é apenas local e não faz parte do conteúdo versionado do template;
+- se você clonar o repositório fora do `RStudio`, crie depois um projeto a partir da pasta local em `Project > New Project > Existing Directory`.
 
 
 ## Estrutura do Projeto
 
 As principais pastas e arquivos do projeto são:
 
-- `quarto_template_dissertacao_tradicional.Rproj`: arquivo do projeto para abrir no `RStudio`;
 - `template_dissertacao_tradicional.qmd`: arquivo principal da dissertação;
 - `pre_textuais.tex`: arquivo com os elementos pré-textuais;
 - `dados-limpos/`: pasta para armazenar os dados limpos finais, em arquivos `.rds`, usados na dissertação;

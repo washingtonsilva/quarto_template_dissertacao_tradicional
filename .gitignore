@@ -23,12 +23,12 @@ _book/
 !pre_textuais.tex
 
 # R / RStudio
+*.Rproj
 .Rproj.user/
 .Rhistory
 .Rapp.history
 .RData
 .Ruserdata
-*.Rproj.user
 rsconnect/
 
 # Dados locais nao versionados
@@ -58,5 +58,4 @@ dados-limpos/**/*.rds
 # Rendered outputs
 *.pdf
 
-/.quarto/
 **/*.quarto_ipynb
