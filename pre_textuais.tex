@@ -1,0 +1,313 @@
+% ==========================
+% pre_textuais.tex
+% Camada LaTeX reutilizavel do template.
+% ==========================
+
+\usepackage{indentfirst}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{pdfpages}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+\AddToHook{begindocument/end}{%
+  \renewcommand{\contentsname}{Sumário}%
+  \renewcommand{\listfigurename}{Lista de Figuras}%
+  \renewcommand{\listtablename}{Lista de Tabelas}%
+}
+
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter}
+  {1em}
+  {}
+
+\titleformat{name=\chapter,numberless}[block]
+  {\normalfont\huge\bfseries\centering}
+  {}
+  {0pt}
+  {}
+
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+
+\fancypagestyle{textualdissertacao}{%
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\newcommand{\imprimirSubtituloSeInformado}{%
+  \ifdefempty{\SubtituloDissertacao}{}{\\[0.5cm]\large \SubtituloDissertacao}%
+}
+
+\newcommand{\imprimirCoorientadorSeInformado}{%
+  \ifdefempty{\CoorientadorDissertacao}{}{Coorientador(a): \CoorientadorDissertacao\\}%
+}
+
+\newcommand{\imprimirMembroBanca}[3]{%
+  \begin{center}
+  \begin{minipage}{0.78\textwidth}
+  \centering
+  \footnotesize
+  \vspace*{0.95cm}
+  \rule{\linewidth}{0.4pt}\par
+  \vspace{0.12cm}
+  #1\par
+  #3\par
+  \ifdefempty{#2}{}{#2\par}
+  \end{minipage}
+  \end{center}
+}
+
+\newcommand{\imprimirMembroBancaOpcional}[3]{%
+  \ifdefempty{#1}{}{%
+    \imprimirMembroBanca{#1}{#2}{#3}%
+  }%
+}
+
+\newenvironment{dedicatoriadissertacao}{
+  \clearpage
+  \thispagestyle{empty}
+  \null
+  \vfill
+  \begin{flushright}
+  \begin{minipage}{0.45\textwidth}
+  \small
+  \justifying
+}{
+  \end{minipage}
+  \end{flushright}
+  \clearpage
+}
+
+\newenvironment{agradecimentosdissertacao}{
+  \clearpage
+  \thispagestyle{empty}
+  \begin{center}
+    \bfseries AGRADECIMENTOS
+
+    \vspace{1.5em}
+  \end{center}
+  \justifying
+}{
+  \clearpage
+}
+
+\newenvironment{resumodissertacao}{
+  \clearpage
+  \thispagestyle{empty}
+  \small
+  \vspace*{-1cm}
+  \begin{center}
+    \bfseries RESUMO
+
+    \vspace{0.5em}
+  \end{center}
+  \begin{quote}
+  \justifying
+}{
+  \end{quote}
+  \vspace{-1.1em}
+  \begin{center}
+  \begin{minipage}{0.87\textwidth}
+  \textbf{Palavras-chave:} \PalavrasChaveDissertacao
+  \end{minipage}
+  \end{center}
+  \clearpage
+}
+
+\newenvironment{abstractdissertacao}{
+  \clearpage
+  \thispagestyle{empty}
+  \small
+  \vspace*{-1cm}
+  \begin{center}
+    \bfseries ABSTRACT
+
+    \vspace{0.5em}
+  \end{center}
+  \begin{quote}
+  \justifying
+}{
+  \end{quote}
+  \vspace{-1.1em}
+  \begin{center}
+  \begin{minipage}{0.87\textwidth}
+  \textbf{Keywords:} \KeywordsDissertation
+  \end{minipage}
+  \end{center}
+  \clearpage
+}
+
+\newcommand{\capaDissertacao}{%
+  \begin{titlepage}
+  \thispagestyle{empty}
+  \begin{center}
+    \small
+    \textbf{\InstituicaoDissertacao}\\
+    \textbf{\CampusDissertacao}\\
+    \textbf{\ProgramaDissertacao}
+
+    \vspace*{4cm}
+    \Large \textbf{\NomeAutorDissertacao}
+
+    \vspace*{5cm}
+    \Large \textbf{\MakeUppercase{\TituloDissertacao}}
+    \imprimirSubtituloSeInformado
+
+    \vfill
+    \textbf{\CidadeDissertacao, \EstadoDissertacao}\\
+    \textbf{\AnoDissertacao}
+  \end{center}
+  \end{titlepage}
+}
+
+\newcommand{\folhaDeRostoDissertacao}{%
+  \begin{titlepage}
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace*{2cm}
+    \large \textbf{\MakeUppercase{\NomeAutorDissertacao}}
+
+    \vspace*{4cm}
+    \Large \textbf{\TituloDissertacao}
+    \imprimirSubtituloSeInformado
+
+    \vspace*{2cm}
+    \begin{flushright}
+    \begin{minipage}{0.6\textwidth}
+    \small
+    \TextoApresentacaoDissertacao
+    \end{minipage}
+    \end{flushright}
+
+    \vspace{0.8cm}
+    \begin{flushright}
+    \small
+    Orientador(a): \OrientadorDissertacao\\
+    \imprimirCoorientadorSeInformado
+    Linha de pesquisa: \LinhaPesquisaDissertacao
+    \end{flushright}
+
+    \vfill
+    \CidadeDissertacao, \EstadoDissertacao\\
+    \AnoDissertacao
+  \end{center}
+  \end{titlepage}
+}
+
+\newcommand{\fichaCatalograficaPlaceholder}{%
+  \thispagestyle{empty}
+  \vspace*{\fill}
+  \begin{center}
+  \fbox{%
+    \begin{minipage}[t][8cm][t]{12cm}
+      \footnotesize
+      \textbf{Ficha catalográfica}\\
+      Elaborada pela biblioteca do IFMG - Campus Formiga.
+
+      \vspace{0.8em}
+      Salve o arquivo oficial como \texttt{ficha\_catalografica.pdf} na raiz
+      do projeto para substituir esta página automaticamente.
+
+      \vspace{0.8em}
+      O template incluirá todas as páginas do PDF encontrado nesse arquivo.
+
+      \vspace{0.8em}
+      Enquanto isso, use este espaço apenas como marcador visual de posição.
+    \end{minipage}%
+  }
+  \end{center}
+  \vspace*{\fill}
+}
+
+\newcommand{\folhaDeAprovacaoDissertacao}{%
+  \clearpage
+  \thispagestyle{empty}
+  \begingroup
+  \setstretch{1.0}
+  \begin{center}
+    \normalsize \NomeAutorDissertacao
+  \end{center}
+
+  \vspace{2cm}
+
+  \begin{center}
+    \large \textbf{\MakeUppercase{\TituloDissertacao}}
+    \imprimirSubtituloSeInformado
+  \end{center}
+
+  \vspace{1.9cm}
+
+  \begin{flushright}
+  \begin{minipage}{0.5\textwidth}
+  \small
+  \justifying
+  Dissertação apresentada ao \InstituicaoDissertacao, como parte das
+  exigências do \ProgramaDissertacao, área de concentração em
+  \AreaConcentracaoDissertacao, para obtenção do título de
+  \TituloObtidoDissertacao. Linha de pesquisa: \LinhaPesquisaDissertacao.
+  \end{minipage}
+  \end{flushright}
+
+  \vspace{1.5cm}
+
+  \begin{center}
+  \small Aprovado em \DataAprovacaoDissertacao\ pela banca examinadora.
+  \end{center}
+
+  \vspace{0.65cm}
+
+  \imprimirMembroBanca{\MembroBancaUmNome}{\MembroBancaUmFuncao}{\MembroBancaUmInstituicao}
+  \imprimirMembroBanca{\MembroBancaDoisNome}{\MembroBancaDoisFuncao}{\MembroBancaDoisInstituicao}
+  \imprimirMembroBanca{\MembroBancaTresNome}{\MembroBancaTresFuncao}{\MembroBancaTresInstituicao}
+  \imprimirMembroBancaOpcional{\MembroBancaQuatroNome}{\MembroBancaQuatroFuncao}{\MembroBancaQuatroInstituicao}
+  \imprimirMembroBancaOpcional{\MembroBancaCincoNome}{\MembroBancaCincoFuncao}{\MembroBancaCincoInstituicao}
+
+  \endgroup
+  \clearpage
+}
+
+\newcommand{\inserirFichaCatalografica}{%
+  \clearpage
+  \IfFileExists{ficha_catalografica.pdf}{%
+    \includepdf[pages=-,fitpaper=true,pagecommand={\thispagestyle{empty}}]{ficha_catalografica.pdf}%
+  }{%
+    \fichaCatalograficaPlaceholder
+  }%
+}
+
+\newcommand{\inserirListaDeFigurasDissertacao}{%
+  \clearpage
+  \listoffigures
+  \thispagestyle{empty}
+  \clearpage
+}
+
+\newcommand{\inserirListaDeTabelasDissertacao}{%
+  \clearpage
+  \listoftables
+  \thispagestyle{empty}
+  \clearpage
+}
+
+\newcommand{\inserirSumarioDissertacao}{%
+  \clearpage
+  \setcounter{tocdepth}{2}
+  \renewcommand{\contentsname}{Sumário}
+  \tableofcontents
+  \thispagestyle{empty}
+  \clearpage
+}
