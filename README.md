@@ -34,7 +34,9 @@ Para criar sua cópia:
 6. Abra o `RStudio`.
 7. Vá em `Project > New Project > Version Control > Git`.
 8. Na janela de clonagem do `RStudio`, cole a URL do repositório no campo `Repository URL`.
-9. No campo `Project directory name`, confirme ou ajuste o nome da pasta local do projeto.
+9. No campo `Project directory name`, verifique se apareceu o nome do repositório criado, 
+or exemplo: `dissertacao_joao_silva`. sSe não e screveaso nomeque você escolheu para o
+repositório, sem acentos e sem espaços, por exemplo: `dissertacao_joao_silva`.
 10. Escolha a pasta em que o projeto será criado no seu computador.
 11. Conclua a criação do projeto.
 12. Adicione o orientador como colaborador do repositório.
