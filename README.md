@@ -1,9 +1,12 @@
 # Template de Dissertação
 
-Template Quarto para a elaboração de dissertações tradicionais dos meus orientandos do
+Template Quarto para a elaboração das dissertações dos meus orientandos do
 [Mestrado Profissional em Administração do IFMG - Campus Formiga](https://formiga.ifmg.edu.br/mestrado).
 
-Este projeto foi preparado para gerar um único arquivo PDF e não contém capítulo dedicado ao produto técnico.
+Este projeto foi preparado para gerar um único arquivo PDF e não contém capítulo 
+dedicado ao produto técnico.
+
+
 
 ## Antes de Começar
 
@@ -48,6 +51,7 @@ Observações:
 - esse arquivo `.Rproj` é apenas local e não faz parte do conteúdo versionado do template;
 
 
+
 ## Estrutura do Projeto
 
 As principais pastas e arquivos do projeto são:
@@ -66,8 +70,8 @@ Não altere o arquivo `pre_textuais.tex`, salvo orientação expressa do orienta
 
 ## O que Editar Primeiro
 
-Abra `dissertacao.qmd` e revise primeiro o 
-bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO`, no topo do arquivo.
+Abra `dissertacao.qmd` e revise primeiro o bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO`, 
+no topo do arquivo.
 
 Revise principalmente:
 
@@ -100,6 +104,8 @@ revisão da literatura, metodologia, etc.):
 ```bash
 quarto render dissertacao.qmd
 ```
+
+
 
 ## Dados e Código no Template
 
@@ -136,6 +142,7 @@ path_limpos <- here::here("dados-limpos/arquivo_limpo.rds")
 dados_limpos <- readr::read_rds(path_limpos)
 ```
 
+
 ## Elementos Pré-textuais
 
 A sequência atual do template é a seguinte:
@@ -165,6 +172,8 @@ Se quiser ativar esses elementos opcionais no arquivo principal:
 - descomente `\inserirListaDeFigurasDissertacao` se houver figuras no trabalho;
 - descomente `\inserirListaDeTabelasDissertacao` se houver tabelas no trabalho.
 
+
+
 ## Ficha Catalográfica
 
 A ficha catalográfica não é escrita diretamente no template.
@@ -177,6 +186,8 @@ Procedimento:
 4. renderize novamente a dissertação.
 
 Se esse arquivo não existir, o template exibirá apenas um marcador de posição no local correspondente.
+
+
 
 ## Folha de Aprovação
 
