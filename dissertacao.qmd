@@ -239,11 +239,9 @@ Escreva aqui a seção de resultados e discussão.
 
 
 
-# Considerações Finais {#sec-finais}
+# Conclusão {#sec-conclusao}
 
-Escreva aqui as considerações finais.
-
-
+Escreva aqui as conclusões da sua dissertação.
 
 
 

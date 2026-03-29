@@ -91,7 +91,7 @@ Regras práticas:
 - prefira funções curtas, como `Orientador`, `Coorientador`, `Avaliador interno` e `Avaliador externo`.
 
 Após finalizar as principais seções da dissertação (introdução, 
-revisão da literatura, meteodologia, etc.):
+revisão da literatura, metodologia, etc.):
 
 - escreva o resumo e o abstract;
 - ative ou mantenha desativados os elementos opcionais;
