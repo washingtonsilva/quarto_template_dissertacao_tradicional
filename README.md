@@ -80,6 +80,7 @@ Revise principalmente:
 - cidade, estado e ano;
 - orientador;
 - coorientador, se houver;
+- instituição do coorientador, se houver;
 - texto da folha de rosto;
 - palavras-chave em português;
 - keywords em inglês;
@@ -89,7 +90,8 @@ Regras práticas:
 
 - se não houver subtítulo, deixe `\\SubtituloDissertacao{}` vazio;
 - se houver subtítulo, ele será exibido automaticamente na capa e na folha de rosto;
-- se não houver coorientador, deixe `\\CoorientadorDissertacao{}` vazio;
+- se não houver coorientador, deixe `\\CoorientadorDissertacao{}` e `\\CoorientadorInstituicaoDissertacao{}` vazios;
+- se houver coorientador, ele aparecerá na folha de rosto e também ganhará um campo próprio de assinatura na folha de aprovação, logo abaixo do orientador;
 - na folha de aprovação, use apenas a sigla da instituição de cada membro, como `IFMG`, `UFMG` ou `UFLA`;
 - não é necessário escrever “membro titular”;
 - prefira funções curtas, como `Orientador`, `Coorientador`, `Avaliador interno` e `Avaliador externo`.
@@ -197,5 +199,7 @@ Importante:
 
 - preencha a data de aprovação e os dados da banca apenas quando essas informações estiverem definidas;
 - preencha corretamente os dados da banca no topo do arquivo `dissertacao.qmd` antes de gerar a versão final;
+- se houver coorientador, preencha também `\\CoorientadorInstituicaoDissertacao{}` para que a folha de aprovação exiba corretamente o campo adicional de assinatura;
+- no estado atual do template, a folha de rosto usa os rótulos `Orientador:` e `Coorientador:`, sem a forma genérica `(a)`;
 - não renderize novamente o PDF depois que ele for assinado;
 - qualquer alteração posterior invalida o arquivo assinado.

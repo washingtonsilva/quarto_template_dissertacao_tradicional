@@ -60,7 +60,16 @@
 }
 
 \newcommand{\imprimirCoorientadorSeInformado}{%
-  \ifdefempty{\CoorientadorDissertacao}{}{Coorientador(a): \CoorientadorDissertacao\\}%
+  \ifdefempty{\CoorientadorDissertacao}{}{Coorientador: \CoorientadorDissertacao\\}%
+}
+
+\newcommand{\imprimirCoorientadorFolhaAprovacaoSeInformado}{%
+  \ifdefempty{\CoorientadorDissertacao}{}{%
+    \imprimirMembroBanca
+      {\CoorientadorDissertacao}
+      {Coorientador}
+      {\CoorientadorInstituicaoDissertacao}%
+  }%
 }
 
 \newcommand{\imprimirMembroBanca}[3]{%
@@ -68,9 +77,9 @@
   \begin{minipage}{0.78\textwidth}
   \centering
   \footnotesize
-  \vspace*{0.95cm}
+  \vspace*{0.72cm}
   \rule{\linewidth}{0.4pt}\par
-  \vspace{0.12cm}
+  \vspace{0.10cm}
   #1\par
   #3\par
   \ifdefempty{#2}{}{#2\par}
@@ -209,7 +218,7 @@
     \vspace{0.8cm}
     \begin{flushright}
     \small
-    Orientador(a): \OrientadorDissertacao\\
+    Orientador: \OrientadorDissertacao\\
     \imprimirCoorientadorSeInformado
     Linha de pesquisa: \LinhaPesquisaDissertacao
     \end{flushright}
@@ -255,14 +264,14 @@
     \normalsize \NomeAutorDissertacao
   \end{center}
 
-  \vspace{2cm}
+  \vspace{1.6cm}
 
   \begin{center}
     \large \textbf{\MakeUppercase{\TituloDissertacao}}
     \imprimirSubtituloSeInformado
   \end{center}
 
-  \vspace{1.9cm}
+  \vspace{1.35cm}
 
   \begin{flushright}
   \begin{minipage}{0.5\textwidth}
@@ -276,15 +285,16 @@
   \end{minipage}
   \end{flushright}
 
-  \vspace{1.5cm}
+  \vspace{1.1cm}
 
   \begin{center}
   \small Aprovado em \DataAprovacaoDissertacao\ pela banca examinadora.
   \end{center}
 
-  \vspace{0.65cm}
+  \vspace{0.35cm}
 
   \imprimirMembroBanca{\MembroBancaUmNome}{\MembroBancaUmFuncao}{\MembroBancaUmInstituicao}
+  \imprimirCoorientadorFolhaAprovacaoSeInformado
   \imprimirMembroBanca{\MembroBancaDoisNome}{\MembroBancaDoisFuncao}{\MembroBancaDoisInstituicao}
   \imprimirMembroBanca{\MembroBancaTresNome}{\MembroBancaTresFuncao}{\MembroBancaTresInstituicao}
   \imprimirMembroBancaOpcional{\MembroBancaQuatroNome}{\MembroBancaQuatroFuncao}{\MembroBancaQuatroInstituicao}
