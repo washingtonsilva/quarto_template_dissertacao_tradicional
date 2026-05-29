@@ -81,6 +81,8 @@ Revise principalmente:
 - orientador;
 - coorientador, se houver;
 - instituição do coorientador, se houver;
+- data de aprovação;
+- instituições e funções da banca;
 - texto da folha de rosto;
 - palavras-chave em português;
 - keywords em inglês;
@@ -88,10 +90,13 @@ Revise principalmente:
 
 Regras práticas:
 
+- a folha de rosto usa diretamente os campos `\\OrientadorDissertacao{}` e `\\CoorientadorDissertacao{}`;
 - se não houver subtítulo, deixe `\\SubtituloDissertacao{}` vazio;
 - se houver subtítulo, ele será exibido automaticamente na capa e na folha de rosto;
 - se não houver coorientador, deixe `\\CoorientadorDissertacao{}` e `\\CoorientadorInstituicaoDissertacao{}` vazios;
-- se houver coorientador, ele aparecerá na folha de rosto e também ganhará um campo próprio de assinatura na folha de aprovação, logo abaixo do orientador;
+- se houver coorientador, preencha nome e instituição para que ele apareça também na folha de aprovação;
+- se o nome do coorientador for preenchido, mas a instituição ficar vazia, ele aparecerá na folha de rosto, mas não aparecerá na folha de aprovação;
+- na folha de aprovação, o primeiro campo da banca já herda automaticamente o nome de `\\OrientadorDissertacao{}`;
 - na folha de aprovação, use apenas a sigla da instituição de cada membro, como `IFMG`, `UFMG` ou `UFLA`;
 - não é necessário escrever “membro titular”;
 - prefira funções curtas, como `Orientador`, `Coorientador`, `Avaliador interno` e `Avaliador externo`.
@@ -191,6 +196,25 @@ Se esse arquivo não existir, o template exibirá apenas um marcador de posiçã
 
 
 
+## Folha de Rosto
+
+A folha de rosto é preenchida automaticamente a partir dos campos do topo de `dissertacao.qmd`.
+
+Preencha os seguintes campos:
+
+1. `\\OrientadorDissertacao{}` para o nome do orientador;
+2. `\\CoorientadorDissertacao{}` apenas se houver coorientador;
+3. `\\TextoApresentacaoDissertacao{}` se for necessário ajustar o texto-padrão de apresentação;
+4. `\\LinhaPesquisaDissertacao{}` para a linha de pesquisa exibida ao final do bloco.
+
+Importante:
+
+- se `\\CoorientadorDissertacao{}` estiver vazio, a folha de rosto exibirá apenas o orientador;
+- no estado atual do template, a folha de rosto usa os rótulos `Orientador:` e `Coorientador:`;
+- não é necessário editar `pre_textuais.tex` para alterar nomes ou funções na folha de rosto.
+
+
+
 ## Folha de Aprovação
 
 A folha de aprovação faz parte do PDF gerado pelo próprio **Quarto**. Isso permite que o PDF final seja assinado digitalmente pelos membros da banca, por exemplo, via `gov.br`.
@@ -199,7 +223,12 @@ Importante:
 
 - preencha a data de aprovação e os dados da banca apenas quando essas informações estiverem definidas;
 - preencha corretamente os dados da banca no topo do arquivo `dissertacao.qmd` antes de gerar a versão final;
-- se houver coorientador, preencha também `\\CoorientadorInstituicaoDissertacao{}` para que a folha de aprovação exiba corretamente o campo adicional de assinatura;
-- no estado atual do template, a folha de rosto usa os rótulos `Orientador:` e `Coorientador:`, sem a forma genérica `(a)`;
+- a ordem atual dos campos na folha de aprovação é: orientador, coorientador (se houver), avaliador interno, avaliador externo e membros adicionais opcionais;
+- o nome do orientador na folha de aprovação já é herdado automaticamente de `\\OrientadorDissertacao{}`;
+- se houver coorientador e você quiser exibi-lo na folha de aprovação, preencha `\\CoorientadorDissertacao{}` e `\\CoorientadorInstituicaoDissertacao{}`;
+- se não houver coorientador, ou se a instituição dele não estiver preenchida, o campo adicional de assinatura não será exibido na folha de aprovação;
+- use `\\MembroBancaUmInstituicao{}` para a instituição do orientador na folha de aprovação;
+- use `\\MembroBancaDois...` para o avaliador interno e `\\MembroBancaTres...` para o avaliador externo;
+- use `\\MembroBancaQuatro...` e `\\MembroBancaCinco...` apenas se a banca tiver membros adicionais;
 - não renderize novamente o PDF depois que ele for assinado;
 - qualquer alteração posterior invalida o arquivo assinado.

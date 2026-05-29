@@ -65,10 +65,12 @@
 
 \newcommand{\imprimirCoorientadorFolhaAprovacaoSeInformado}{%
   \ifdefempty{\CoorientadorDissertacao}{}{%
-    \imprimirMembroBanca
-      {\CoorientadorDissertacao}
-      {Coorientador}
-      {\CoorientadorInstituicaoDissertacao}%
+    \ifdefempty{\CoorientadorInstituicaoDissertacao}{}{%
+      \imprimirMembroBanca
+        {\CoorientadorDissertacao}
+        {Coorientador}
+        {\CoorientadorInstituicaoDissertacao}%
+    }%
   }%
 }
 
