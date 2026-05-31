@@ -23,17 +23,18 @@ format:
           \newcommand{\CidadeDissertacao}{Formiga}
           \newcommand{\EstadoDissertacao}{MG}
           \newcommand{\AnoDissertacao}{2026}
-          % Se houver coorientador(a), preencha nome e instituicao abaixo.
-          % Se nao houver, deixe ambos os campos vazios.
+          % Caso padrao: orientador, coorientador, avaliador interno e avaliador externo.
+          % Se nao houver coorientador(a), deixe os dois campos abaixo vazios.
           \newcommand{\OrientadorDissertacao}{Prof. Dr. Washington Santos da Silva}
-          \newcommand{\CoorientadorDissertacao}{Prof. Dr. Lelis Pedro de Andrade}
+          \newcommand{\CoorientadorDissertacao}{Prof. Dr. Nome do Coorientador}
           \newcommand{\CoorientadorInstituicaoDissertacao}{IFMG}
           % Campo institucional fixo do curso.
           \newcommand{\LinhaPesquisaDissertacao}{Finanças Corporativas e Investimentos}
           \newcommand{\AreaConcentracaoDissertacao}{Finanças}
           \newcommand{\TituloObtidoDissertacao}{Mestre em Administração}
           \newcommand{\TextoApresentacaoDissertacao}{Dissertação apresentada ao Programa de Pós-Graduação em Administração do Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais (IFMG) -- Campus Formiga, como requisito parcial para obtenção do título de \TituloObtidoDissertacao.}
-          \newcommand{\DataAprovacaoDissertacao}{00 de mês de 2026}
+          % Escreva a data da defesa por extenso, por exemplo: 15 de março de 2026.
+          \newcommand{\DataAprovacaoDissertacao}{dia de mês de ano}
           \newcommand{\PalavrasChaveDissertacao}{palavra-chave 1; palavra-chave 2; palavra-chave 3.}
           \newcommand{\KeywordsDissertation}{keyword 1; keyword 2; keyword 3.}
           \newcommand{\MembroBancaUmNome}{\OrientadorDissertacao}

@@ -58,4 +58,7 @@ dados-limpos/**/*.rds
 # Rendered outputs
 *.pdf
 
+# Local context for Codex
+codex.md
+
 **/*.quarto_ipynb

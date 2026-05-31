@@ -48,7 +48,7 @@
 }
 
 \newcommand{\imprimirSubtituloSeInformado}{%
-  \ifdefempty{\SubtituloDissertacao}{}{\\[0.5cm]\large \SubtituloDissertacao}%
+  \ifdefempty{\SubtituloDissertacao}{}{\\[0.35cm]\normalsize \SubtituloDissertacao}%
 }
 
 \newcommand{\imprimirSubtituloNaCapaSeInformado}{%
@@ -75,18 +75,20 @@
 }
 
 \newcommand{\imprimirMembroBanca}[3]{%
-  \begin{center}
+  \par\vspace{1.00cm}
+  \noindent\begin{minipage}{\textwidth}
+  \centering
   \begin{minipage}{0.78\textwidth}
   \centering
   \footnotesize
-  \vspace*{0.72cm}
   \rule{\linewidth}{0.4pt}\par
-  \vspace{0.10cm}
+  \vspace{0.08cm}
+  \setstretch{1.0}
   #1\par
   #3\par
   \ifstrempty{#2}{}{#2\par}
   \end{minipage}
-  \end{center}
+  \end{minipage}\par
 }
 
 \newcommand{\imprimirMembroBancaOpcional}[3]{%
@@ -266,14 +268,14 @@
     \normalsize \NomeAutorDissertacao
   \end{center}
 
-  \vspace{1.6cm}
+  \vspace{0.75cm}
 
   \begin{center}
-    \large \textbf{\MakeUppercase{\TituloDissertacao}}
+    \normalsize \textbf{\MakeUppercase{\TituloDissertacao}}
     \imprimirSubtituloSeInformado
   \end{center}
 
-  \vspace{1.35cm}
+  \vspace{0.65cm}
 
   \begin{flushright}
   \begin{minipage}{0.5\textwidth}
@@ -287,13 +289,13 @@
   \end{minipage}
   \end{flushright}
 
-  \vspace{1.1cm}
+  \vspace{0.55cm}
 
   \begin{center}
-  \small Aprovado em \DataAprovacaoDissertacao\ pela banca examinadora.
+  \small Aprovada em \DataAprovacaoDissertacao\ pela banca examinadora.
   \end{center}
 
-  \vspace{0.35cm}
+  \vspace{0.20cm}
 
   \imprimirMembroBanca{\MembroBancaUmNome}{\MembroBancaUmFuncao}{\MembroBancaUmInstituicao}
   \imprimirCoorientadorFolhaAprovacaoSeInformado

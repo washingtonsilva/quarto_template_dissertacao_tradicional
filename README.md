@@ -19,6 +19,23 @@ Antes de começar a usá-lo, recomenda-se fortemente atualizar:
 
 
 
+## Uso em Resumo
+
+Depois de criar sua cópia do template:
+
+1. abra o arquivo `dissertacao.qmd`;
+2. revise o bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO`, no topo do arquivo;
+3. escreva o texto da dissertação nas seções indicadas;
+4. preencha resumo, abstract, palavras-chave e keywords;
+5. adicione suas referências em `referencias.bib`;
+6. renderize `dissertacao.qmd` para gerar `dissertacao.pdf`;
+7. revise visualmente o PDF antes de enviar qualquer versão para avaliação ou assinatura.
+
+Na maior parte do trabalho, você editará apenas `dissertacao.qmd` e
+`referencias.bib`.
+
+
+
 ## Como Criar seu Repositório a partir deste Template
 
 Este projeto foi publicado no **GitHub** como um **template**.
@@ -59,10 +76,8 @@ As principais pastas e arquivos do projeto são:
 - `dissertacao.qmd`: arquivo principal da dissertação;
 - `pre_textuais.tex`: arquivo com os elementos pré-textuais;
 - `dados-limpos/`: pasta para armazenar os dados limpos finais, em arquivos `.rds`, usados na dissertação;
-- `referencias.bib`: arquivo da bibliografia;
+- `referencias.bib`: arquivo da bibliografia, inicialmente sem referências específicas;
 - `associacao-brasileira-de-normas-tecnicas-ipea.csl`: arquivo de estilo das citações.
-
-Na maior parte do tempo, você precisará editar apenas o arquivo `dissertacao.qmd`.
 
 Não altere o arquivo `pre_textuais.tex`, salvo orientação expressa do orientador.
 
@@ -73,14 +88,32 @@ Não altere o arquivo `pre_textuais.tex`, salvo orientação expressa do orienta
 Abra `dissertacao.qmd` e revise primeiro o bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO`, 
 no topo do arquivo.
 
+Os campos editáveis estão definidos como comandos LaTeX nesta forma:
+
+```tex
+\newcommand{\NomeDoCampo}{valor do campo}
+```
+
+Edite apenas o texto entre o segundo par de chaves, isto é, o conteúdo de
+`{valor do campo}`.
+
+Exemplo:
+
+```tex
+\newcommand{\DataAprovacaoDissertacao}{15 de março de 2026}
+```
+
+No exemplo acima, o texto editável é apenas `15 de março de 2026`.
+Não altere o nome do comando.
+
 Revise principalmente:
 
 - nome do discente;
 - título e subtítulo;
 - cidade, estado e ano;
 - orientador;
-- coorientador, se houver;
-- instituição do coorientador, se houver;
+- coorientador;
+- instituição do coorientador;
 - data de aprovação;
 - instituições e funções da banca;
 - texto da folha de rosto;
@@ -90,16 +123,56 @@ Revise principalmente:
 
 Regras práticas:
 
-- a folha de rosto usa diretamente os campos `\\OrientadorDissertacao{}` e `\\CoorientadorDissertacao{}`;
-- se não houver subtítulo, deixe `\\SubtituloDissertacao{}` vazio;
+- a folha de rosto usa diretamente os valores definidos em `\newcommand{\OrientadorDissertacao}{...}` e `\newcommand{\CoorientadorDissertacao}{...}`;
+- se não houver subtítulo, deixe `\newcommand{\SubtituloDissertacao}{}` vazio;
 - se houver subtítulo, ele será exibido automaticamente na capa e na folha de rosto;
-- se não houver coorientador, deixe `\\CoorientadorDissertacao{}` e `\\CoorientadorInstituicaoDissertacao{}` vazios;
-- se houver coorientador, preencha nome e instituição para que ele apareça também na folha de aprovação;
+- o caso padrão da folha de aprovação usa quatro campos de assinatura: orientador, coorientador, avaliador interno e avaliador externo;
+- se não houver coorientador, mantenha `\newcommand{\CoorientadorDissertacao}{}` e `\newcommand{\CoorientadorInstituicaoDissertacao}{}` vazios;
+- quando houver coorientador, preencha nome e instituição para que ele apareça também na folha de aprovação;
 - se o nome do coorientador for preenchido, mas a instituição ficar vazia, ele aparecerá na folha de rosto, mas não aparecerá na folha de aprovação;
-- na folha de aprovação, o primeiro campo da banca já herda automaticamente o nome de `\\OrientadorDissertacao{}`;
+- na folha de aprovação, o primeiro campo da banca já herda automaticamente o nome definido em `\newcommand{\OrientadorDissertacao}{...}`;
 - na folha de aprovação, use apenas a sigla da instituição de cada membro, como `IFMG`, `UFMG` ou `UFLA`;
 - não é necessário escrever “membro titular”;
 - prefira funções curtas, como `Orientador`, `Coorientador`, `Avaliador interno` e `Avaliador externo`.
+
+Campos mais usados:
+
+| Campo | O que preencher | Exemplo |
+| --- | --- | --- |
+| `\NomeAutorDissertacao` | nome completo do discente | `Maria Silva` |
+| `\TituloDissertacao` | título da dissertação | `Determinantes do Desempenho Financeiro` |
+| `\SubtituloDissertacao` | subtítulo, se houver | `Evidências para Empresas Brasileiras` |
+| `\AnoDissertacao` | ano exibido na capa e na folha de rosto | `2026` |
+| `\DataAprovacaoDissertacao` | data da defesa por extenso | `15 de março de 2026` |
+| `\PalavrasChaveDissertacao` | palavras-chave em português | `finanças; desempenho; empresas.` |
+| `\KeywordsDissertation` | keywords em inglês | `finance; performance; firms.` |
+
+Campos institucionais:
+
+| Campo | O que preencher | Observação |
+| --- | --- | --- |
+| `\TextoApresentacaoDissertacao` | texto de apresentação da folha de rosto | altere apenas se houver orientação específica |
+| `\LinhaPesquisaDissertacao` | linha de pesquisa | confira se está correta para sua dissertação |
+| `\AreaConcentracaoDissertacao` | área de concentração | confira se está correta para sua dissertação |
+| `\TituloObtidoDissertacao` | título obtido | em geral, mantenha `Mestre em Administração` |
+
+Campos da orientação e da banca:
+
+| Campo | O que preencher | Exemplo |
+| --- | --- | --- |
+| `\OrientadorDissertacao` | nome do orientador | `Prof. Dr. Nome do Orientador` |
+| `\CoorientadorDissertacao` | nome do coorientador | `Prof. Dr. Nome do Coorientador` |
+| `\CoorientadorInstituicaoDissertacao` | sigla da instituição do coorientador | `IFMG` |
+| `\MembroBancaUmInstituicao` | sigla da instituição do orientador | `IFMG` |
+| `\MembroBancaDoisNome` | nome do avaliador interno | `Prof. Dr. Nome do Examinador Interno` |
+| `\MembroBancaDoisFuncao` | função do avaliador interno | `Avaliador interno` |
+| `\MembroBancaDoisInstituicao` | sigla da instituição do avaliador interno | `IFMG` |
+| `\MembroBancaTresNome` | nome do avaliador externo | `Prof. Dr. Nome do Examinador Externo` |
+| `\MembroBancaTresFuncao` | função do avaliador externo | `Avaliador externo` |
+| `\MembroBancaTresInstituicao` | sigla da instituição do avaliador externo | `UFMG` |
+
+Para a data de aprovação, substitua todo o conteúdo `dia de mês de ano`
+pela data real da defesa, escrita por extenso.
 
 Após finalizar as principais seções da dissertação (introdução, 
 revisão da literatura, metodologia, etc.):
@@ -136,6 +209,11 @@ Observações:
 - isso é especialmente importante quando os dados finais vierem de bases licenciadas ou com restrição de redistribuição, como a Economatica;
 - se for necessário compartilhar esses arquivos com o orientador, combine diretamente a forma de envio.
 
+O chunk `setup` em `dissertacao.qmd` começa com `eval: false`. Mantenha assim
+até ter certeza de que os pacotes e o arquivo `.rds` indicados existem no seu
+computador. Se você mudar para `eval: true` antes disso, a renderização pode
+falhar.
+
 Exemplo mínimo de carga de dados limpos finais em `dissertacao.qmd`:
 
 ```r
@@ -148,6 +226,42 @@ path_limpos <- here::here("dados-limpos/arquivo_limpo.rds")
 # importa o arquivo de dados limpos
 dados_limpos <- readr::read_rds(path_limpos)
 ```
+
+## Referências e Citações
+
+As referências bibliográficas ficam no arquivo `referencias.bib`. Esse arquivo
+começa sem referências reais para evitar que o template traga bibliografia de
+uma pesquisa específica.
+
+Fluxo básico:
+
+1. adicione uma entrada BibTeX em `referencias.bib`;
+2. use a chave da entrada para citar no texto;
+3. renderize o PDF.
+
+Exemplo de entrada em `referencias.bib`:
+
+```bibtex
+@book{sobrenome2026,
+  author    = {Sobrenome, Nome},
+  title     = {Título do livro},
+  year      = {2026},
+  publisher = {Editora}
+}
+```
+
+Exemplo de citação em `dissertacao.qmd`:
+
+```markdown
+Texto da dissertação com citação entre parênteses [@sobrenome2026].
+```
+
+A seção `Referências` do PDF é gerada automaticamente a partir das citações
+feitas no texto. Não digite manualmente a lista de referências no final do
+arquivo `dissertacao.qmd`.
+
+Se uma referência não aparecer no PDF, verifique se ela foi citada no texto
+com a chave correta.
 
 
 ## Elementos Pré-textuais
@@ -179,6 +293,33 @@ Se quiser ativar esses elementos opcionais no arquivo principal:
 - descomente `\inserirListaDeFigurasDissertacao` se houver figuras no trabalho;
 - descomente `\inserirListaDeTabelasDissertacao` se houver tabelas no trabalho.
 
+As linhas das listas de figuras e tabelas começam dentro de um comentário HTML.
+Para ativá-las, remova os marcadores `<!--` e `-->` que envolvem esse bloco.
+
+Exemplo: para ativar a dedicatória, transforme isto:
+
+```markdown
+<!--
+\begin{dedicatoriadissertacao}
+
+Dedique este trabalho a quem fez parte da sua trajetória acadêmica,
+profissional ou pessoal.
+
+\end{dedicatoriadissertacao}
+-->
+```
+
+nisto:
+
+```tex
+\begin{dedicatoriadissertacao}
+
+Dedique este trabalho a quem fez parte da sua trajetória acadêmica,
+profissional ou pessoal.
+
+\end{dedicatoriadissertacao}
+```
+
 
 
 ## Ficha Catalográfica
@@ -202,14 +343,14 @@ A folha de rosto é preenchida automaticamente a partir dos campos do topo de `d
 
 Preencha os seguintes campos:
 
-1. `\\OrientadorDissertacao{}` para o nome do orientador;
-2. `\\CoorientadorDissertacao{}` apenas se houver coorientador;
-3. `\\TextoApresentacaoDissertacao{}` se for necessário ajustar o texto-padrão de apresentação;
-4. `\\LinhaPesquisaDissertacao{}` para a linha de pesquisa exibida ao final do bloco.
+1. `\newcommand{\OrientadorDissertacao}{...}` para o nome do orientador;
+2. `\newcommand{\CoorientadorDissertacao}{...}` para o nome do coorientador;
+3. `\newcommand{\TextoApresentacaoDissertacao}{...}` se for necessário ajustar o texto-padrão de apresentação;
+4. `\newcommand{\LinhaPesquisaDissertacao}{...}` para a linha de pesquisa exibida ao final do bloco.
 
 Importante:
 
-- se `\\CoorientadorDissertacao{}` estiver vazio, a folha de rosto exibirá apenas o orientador;
+- se `\newcommand{\CoorientadorDissertacao}{}` estiver vazio, a folha de rosto exibirá apenas o orientador;
 - no estado atual do template, a folha de rosto usa os rótulos `Orientador:` e `Coorientador:`;
 - não é necessário editar `pre_textuais.tex` para alterar nomes ou funções na folha de rosto.
 
@@ -219,16 +360,74 @@ Importante:
 
 A folha de aprovação faz parte do PDF gerado pelo próprio **Quarto**. Isso permite que o PDF final seja assinado digitalmente pelos membros da banca, por exemplo, via `gov.br`.
 
+O caso padrão deste template contém quatro campos de assinatura:
+
+1. orientador;
+2. coorientador;
+3. avaliador interno;
+4. avaliador externo.
+
+O espaçamento da folha de aprovação foi calibrado para esse caso, com área
+vertical suficiente acima de cada linha para assinatura digital visível.
+
 Importante:
 
 - preencha a data de aprovação e os dados da banca apenas quando essas informações estiverem definidas;
 - preencha corretamente os dados da banca no topo do arquivo `dissertacao.qmd` antes de gerar a versão final;
-- a ordem atual dos campos na folha de aprovação é: orientador, coorientador (se houver), avaliador interno, avaliador externo e membros adicionais opcionais;
-- o nome do orientador na folha de aprovação já é herdado automaticamente de `\\OrientadorDissertacao{}`;
-- se houver coorientador e você quiser exibi-lo na folha de aprovação, preencha `\\CoorientadorDissertacao{}` e `\\CoorientadorInstituicaoDissertacao{}`;
+- a ordem atual dos campos na folha de aprovação é: orientador, coorientador, avaliador interno, avaliador externo e membros adicionais opcionais;
+- o nome do orientador na folha de aprovação já é herdado automaticamente de `\newcommand{\OrientadorDissertacao}{...}`;
+- para exibir o coorientador na folha de aprovação, preencha `\newcommand{\CoorientadorDissertacao}{...}` e `\newcommand{\CoorientadorInstituicaoDissertacao}{...}`;
 - se não houver coorientador, ou se a instituição dele não estiver preenchida, o campo adicional de assinatura não será exibido na folha de aprovação;
-- use `\\MembroBancaUmInstituicao{}` para a instituição do orientador na folha de aprovação;
-- use `\\MembroBancaDois...` para o avaliador interno e `\\MembroBancaTres...` para o avaliador externo;
-- use `\\MembroBancaQuatro...` e `\\MembroBancaCinco...` apenas se a banca tiver membros adicionais;
+- use `\newcommand{\MembroBancaUmInstituicao}{...}` para a instituição do orientador na folha de aprovação;
+- preencha nome, função e instituição do avaliador interno nos campos `\MembroBancaDoisNome`, `\MembroBancaDoisFuncao` e `\MembroBancaDoisInstituicao`;
+- preencha nome, função e instituição do avaliador externo nos campos `\MembroBancaTresNome`, `\MembroBancaTresFuncao` e `\MembroBancaTresInstituicao`;
+- use os campos de quarto e quinto membros apenas se a banca tiver membros adicionais oficialmente definidos;
+- quando houver quarto ou quinto membro, título longo ou subtítulo longo, revise visualmente a folha de aprovação antes de enviar o arquivo para assinatura;
+- a folha de aprovação prioriza espaço para assinatura digital visível no caso padrão de quatro campos;
+- se uma banca ampliada deixar a folha de aprovação excessivamente comprimida ou quebrar a página, ajuste manualmente os dados exibidos ou confirme com a instituição se a folha de aprovação pode ocupar mais de uma página;
 - não renderize novamente o PDF depois que ele for assinado;
 - qualquer alteração posterior invalida o arquivo assinado.
+
+
+## Problemas Comuns
+
+Se o PDF não for gerado:
+
+- verifique se **Quarto** e **TinyTeX** estão instalados;
+- confira se você está renderizando `dissertacao.qmd`;
+- leia a mensagem de erro exibida no painel de renderização do **RStudio**.
+
+Se o erro mencionar um pacote do R:
+
+- verifique se o pacote está instalado;
+- se o pacote não for necessário, remova ou comente a linha correspondente no chunk `setup`.
+
+Se o erro mencionar um arquivo `.rds`:
+
+- confira se o arquivo existe em `dados-limpos/`;
+- confira se o nome usado em `path_limpos <- here::here("dados-limpos/arquivo_limpo.rds")` é igual ao nome real do arquivo;
+- mantenha `eval: false` no chunk `setup` até o arquivo estar disponível.
+
+Se a ficha catalográfica não aparecer:
+
+- salve o arquivo oficial como `ficha_catalografica.pdf`;
+- coloque esse arquivo na raiz do projeto, na mesma pasta de `dissertacao.qmd`;
+- renderize novamente.
+
+Se uma referência não aparecer:
+
+- confira se a entrada está em `referencias.bib`;
+- confira se a chave foi citada no texto, por exemplo `[@sobrenome2026]`;
+- confira se não há erro de digitação na chave.
+
+Se o PDF for gerado, mas ainda aparecer com dados genéricos:
+
+- revise o bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO` no topo de `dissertacao.qmd`;
+- confira nome, título, coorientador, data de aprovação, banca, palavras-chave e keywords;
+- renderize novamente depois de corrigir esses campos.
+
+Se a folha de aprovação ficar apertada:
+
+- revise se todos os membros adicionais são realmente necessários;
+- encurte funções e siglas institucionais quando possível;
+- revise visualmente o PDF antes de enviar para assinatura digital.
