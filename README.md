@@ -1,4 +1,4 @@
-# Template de Dissertação
+# Template de dissertação
 
 Template Quarto para a elaboração das dissertações dos meus orientandos do
 [Mestrado Profissional em Administração do IFMG - Campus Formiga](https://formiga.ifmg.edu.br/mestrado).
@@ -8,7 +8,7 @@ dedicado ao produto técnico.
 
 
 
-## Antes de Começar
+## Antes de começar
 
 Este template assume que você já tem **R**, **RStudio**, **Quarto** e **TinyTeX** instalados.
 
@@ -19,7 +19,7 @@ Antes de começar a usá-lo, recomenda-se fortemente atualizar:
 
 
 
-## Uso em Resumo
+## Uso em resumo
 
 Depois de criar sua cópia do template:
 
@@ -36,7 +36,7 @@ Na maior parte do trabalho, você editará apenas `dissertacao.qmd` e
 
 
 
-## Como Criar seu Repositório a partir deste Template
+## Como criar seu repositório a partir deste template
 
 Este projeto foi publicado no **GitHub** como um **template**.
 
@@ -69,7 +69,7 @@ Observações:
 
 
 
-## Estrutura do Projeto
+## Estrutura do projeto
 
 As principais pastas e arquivos do projeto são:
 
@@ -83,7 +83,7 @@ Não altere o arquivo `pre_textuais.tex`, salvo orientação expressa do orienta
 
 
 
-## O que Editar Primeiro
+## O que editar primeiro?
 
 Abra `dissertacao.qmd` e revise primeiro o bloco `DADOS EDITÁVEIS DA DISSERTAÇÃO`, 
 no topo do arquivo.
@@ -187,7 +187,7 @@ quarto render dissertacao.qmd
 
 
 
-## Dados e Código no Template
+## Dados e código no template
 
 Este projeto da dissertação não substitui o projeto analítico da pesquisa.
 
@@ -227,7 +227,7 @@ path_limpos <- here::here("dados-limpos/arquivo_limpo.rds")
 dados_limpos <- readr::read_rds(path_limpos)
 ```
 
-## Referências e Citações
+## Referências e citações
 
 As referências bibliográficas ficam no arquivo `referencias.bib`. Esse arquivo
 começa sem referências reais para evitar que o template traga bibliografia de
@@ -322,7 +322,7 @@ profissional ou pessoal.
 
 
 
-## Ficha Catalográfica
+## Ficha catalográfica
 
 A ficha catalográfica não é escrita diretamente no template.
 
@@ -337,7 +337,7 @@ Se esse arquivo não existir, o template exibirá apenas um marcador de posiçã
 
 
 
-## Folha de Rosto
+## Folha de rosto
 
 A folha de rosto é preenchida automaticamente a partir dos campos do topo de `dissertacao.qmd`.
 
@@ -356,7 +356,7 @@ Importante:
 
 
 
-## Folha de Aprovação
+## Folha de aprovação
 
 A folha de aprovação faz parte do PDF gerado pelo próprio **Quarto**. Isso permite que o PDF final seja assinado digitalmente pelos membros da banca, por exemplo, via `gov.br`.
 
@@ -389,7 +389,7 @@ Importante:
 - qualquer alteração posterior invalida o arquivo assinado.
 
 
-## Problemas Comuns
+## Problemas comuns
 
 Se o PDF não for gerado:
 
